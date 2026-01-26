@@ -4,10 +4,10 @@ import consultantPhoto from "@/assets/consultant-photo.jpg";
 
 const AboutSection = () => {
   const stats = [
-    { icon: Award, value: "10+", label: "Anos de experiência" },
-    { icon: Users, value: "500+", label: "Clientes atendidos" },
-    { icon: Handshake, value: "300+", label: "Imóveis vendidos" },
-    { icon: Clock, value: "100%", label: "Compromisso" },
+    { icon: Award, value: "100%", label: "Dedicação" },
+    { icon: Users, value: "∞", label: "Comprometimento" },
+    { icon: Handshake, value: "1:1", label: "Atendimento personalizado" },
+    { icon: Clock, value: "24h", label: "Disponibilidade" },
   ];
 
   return (
@@ -25,7 +25,7 @@ const AboutSection = () => {
             <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0">
               <img
                 src={consultantPhoto}
-                alt="Ricardo Consultor Imobiliário"
+                alt="Wellyson Freitas - Consultor Imobiliário"
                 className="w-full h-full object-cover rounded-lg shadow-2xl"
               />
               {/* Decorative frame */}
@@ -46,25 +46,26 @@ const AboutSection = () => {
             </span>
             
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight">
-              Ricardo Costa
+              Wellyson Freitas
             </h2>
             
             <div className="space-y-4 font-sans text-muted-foreground leading-relaxed">
               <p>
-                Com mais de uma década dedicada ao mercado imobiliário de Pernambuco, 
-                construí minha carreira sobre os pilares da <strong className="text-foreground">confiança, transparência 
-                e resultados</strong>.
+                Sou um consultor imobiliário em início de carreira, mas com a determinação 
+                de quem constrói sua trajetória sobre os pilares da <strong className="text-foreground">honestidade, 
+                dedicação e atendimento humanizado</strong>.
               </p>
               <p>
-                Minha missão é guiar você em cada etapa da jornada de aquisição do seu 
-                imóvel — desde a primeira conversa até a entrega das chaves — garantindo 
-                uma experiência tranquila e segura.
+                Há cerca de um ano no mercado imobiliário de Pernambuco, escolhi trilhar 
+                esse caminho com foco total em cada cliente. Acredito que qualidade supera 
+                quantidade — por isso, meu diferencial está no <strong className="text-foreground">atendimento 
+                personalizado</strong> e na atenção a cada detalhe da sua jornada.
               </p>
               <p>
                 Seja você um comprador de primeiro imóvel através do Minha Casa Minha Vida, 
                 um investidor em busca de oportunidades no litoral, ou alguém que deseja 
-                um imóvel de alto padrão, meu compromisso é encontrar a melhor solução 
-                para o seu perfil.
+                um imóvel de alto padrão, estou aqui para caminhar ao seu lado, do primeiro 
+                contato até a entrega das chaves.
               </p>
             </div>
 
