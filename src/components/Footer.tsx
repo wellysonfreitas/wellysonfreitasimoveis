@@ -25,7 +25,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://wa.me/5581999999999"
+                href="https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
@@ -89,10 +89,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="https://wa.me/5581999999999"
+                  href="https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis."
                   className="font-sans text-sm text-cream/60 hover:text-primary transition-colors"
                 >
-                  (81) 99999-9999
+                  (81) 98150-9195
                 </a>
               </li>
               <li className="flex items-center gap-3">

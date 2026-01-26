@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
-  const whatsappLink = "https://wa.me/5581999999999?text=Olá! Quero dar o próximo passo e conversar sobre meu imóvel ideal.";
+  const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis.";
 
   return (
     <section className="section-padding bg-background">

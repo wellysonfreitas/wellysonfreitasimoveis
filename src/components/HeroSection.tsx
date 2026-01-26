@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const whatsappLink = "https://wa.me/5581999999999?text=Olá! Gostaria de saber mais sobre os imóveis disponíveis.";
+  const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis.";
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

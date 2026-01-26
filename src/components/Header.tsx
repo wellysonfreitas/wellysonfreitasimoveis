@@ -22,7 +22,7 @@ const Header = () => {
     { href: "#depoimentos", label: "Depoimentos" },
   ];
 
-  const whatsappLink = "https://wa.me/5581999999999?text=Olá! Gostaria de saber mais sobre os imóveis disponíveis.";
+  const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis.";
 
   return (
     <motion.header
