@@ -17,7 +17,7 @@ const Footer = () => {
             className="lg:col-span-2"
           >
             <h3 className="font-serif text-2xl font-semibold mb-4">
-              RC<span className="text-primary">.</span>Imóveis
+              WF<span className="text-primary">.</span>Imóveis
             </h3>
             <p className="font-sans text-cream/60 leading-relaxed max-w-sm mb-6">
               Consultoria imobiliária especializada em transformar o sonho da 
