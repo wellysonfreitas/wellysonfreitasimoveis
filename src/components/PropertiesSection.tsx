@@ -30,7 +30,7 @@ const properties = [
 ];
 
 const PropertiesSection = () => {
-  const whatsappLink = "https://wa.me/5581999999999?text=Olá! Gostaria de saber mais sobre o empreendimento ";
+  const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis.";
 
   return (
     <section id="imoveis" className="section-padding bg-background">
