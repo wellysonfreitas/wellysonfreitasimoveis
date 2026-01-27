@@ -20,8 +20,9 @@ const Footer = () => {
               WF<span className="text-primary">.</span>Imóveis
             </h3>
             <p className="font-sans text-cream/60 leading-relaxed max-w-sm mb-6">
-              Consultoria imobiliária especializada em transformar o sonho da 
-              casa própria em realidade. Atuando em todo o estado de Pernambuco.
+              Consultoria imobiliária especializada em Minha Casa Minha Vida 
+              e investimentos no litoral de Pernambuco. Atendimento personalizado 
+              do início à entrega das chaves.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -33,7 +34,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com/rcimoveis"
+                href="https://www.instagram.com/wellysonfreitasimoveis/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
@@ -41,7 +42,7 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="mailto:contato@rcimoveis.com.br"
+                href="mailto:wellysonfreitasimoveis@gmail.com"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
               >
                 <Mail className="w-5 h-5" />
@@ -83,7 +84,10 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="font-sans text-sm text-cream/60">
-                  Atuação em todo o estado de Pernambuco
+                  Rua Antônio Lumack do Monte, 96<br />
+                  Empresarial Center II – 12º andar<br />
+                  Boa Viagem, Recife - PE<br />
+                  <span className="text-cream/40 text-xs">Vinculado à Hub Nogueira</span>
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -98,10 +102,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:contato@rcimoveis.com.br"
+                  href="mailto:wellysonfreitasimoveis@gmail.com"
                   className="font-sans text-sm text-cream/60 hover:text-primary transition-colors"
                 >
-                  contato@rcimoveis.com.br
+                  wellysonfreitasimoveis@gmail.com
                 </a>
               </li>
             </ul>
@@ -112,10 +116,10 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-cream/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-sans text-sm text-cream/40">
-              © {currentYear} RC Imóveis. Todos os direitos reservados.
+              © {currentYear} WF Imóveis – Wellyson Freitas. Todos os direitos reservados.
             </p>
             <p className="font-sans text-sm text-cream/40">
-              CRECI-PE: 00000-J
+              CRECI-PE: 16754-J | E-2009012755
             </p>
           </div>
         </div>

@@ -51,21 +51,22 @@ const AboutSection = () => {
             
             <div className="space-y-4 font-sans text-muted-foreground leading-relaxed">
               <p>
-                Sou um consultor imobiliário em início de carreira, mas com a determinação 
-                de quem constrói sua trajetória sobre os pilares da <strong className="text-foreground">honestidade, 
-                dedicação e atendimento humanizado</strong>.
+                Sou <strong className="text-foreground">Wellyson Freitas</strong>, consultor imobiliário 
+                atuando em todo o estado de <strong className="text-foreground">Pernambuco</strong>. 
+                Há cerca de um ano construindo minha trajetória no mercado imobiliário, 
+                com foco em <strong className="text-foreground">honestidade, transparência e atendimento consultivo</strong>.
               </p>
               <p>
-                Há cerca de um ano no mercado imobiliário de Pernambuco, escolhi trilhar 
-                esse caminho com foco total em cada cliente. Acredito que qualidade supera 
-                quantidade — por isso, meu diferencial está no <strong className="text-foreground">atendimento 
-                personalizado</strong> e na atenção a cada detalhe da sua jornada.
+                Minha especialidade está em auxiliar famílias a conquistarem o 
+                <strong className="text-foreground"> primeiro imóvel pelo Minha Casa Minha Vida</strong>, 
+                além de assessorar investidores que buscam oportunidades rentáveis no 
+                <strong className="text-foreground"> litoral pernambucano</strong>.
               </p>
               <p>
-                Seja você um comprador de primeiro imóvel através do Minha Casa Minha Vida, 
-                um investidor em busca de oportunidades no litoral, ou alguém que deseja 
-                um imóvel de alto padrão, estou aqui para caminhar ao seu lado, do primeiro 
-                contato até a entrega das chaves.
+                Acredito que cada cliente merece uma experiência única. Por isso, ofereço 
+                um atendimento <strong className="text-foreground">personalizado e consultivo</strong>, 
+                acompanhando você do primeiro contato até a entrega das chaves — com 
+                dedicação total e foco na sua satisfação.
               </p>
             </div>
 

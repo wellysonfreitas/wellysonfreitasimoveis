@@ -8,24 +8,24 @@ import property3 from "@/assets/property-3.jpg";
 const properties = [
   {
     image: property1,
-    name: "Reserva Beira Mar",
+    name: "Oportunidade no Litoral",
     location: "Porto de Galinhas, PE",
-    description: "Apartamentos de luxo com vista para o mar. Lazer completo e acabamento premium.",
-    type: "Litoral",
+    description: "Excelente opção para investidores. Localização privilegiada e alto potencial de rentabilidade.",
+    type: "Investimento",
   },
   {
     image: property2,
-    name: "Torres do Parque",
-    location: "Boa Viagem, Recife",
-    description: "Alto padrão no coração de Boa Viagem. Varandas amplas e 4 suítes.",
-    type: "Alto Padrão",
+    name: "Residencial Minha Casa",
+    location: "Jaboatão dos Guararapes, PE",
+    description: "Realize o sonho da casa própria com subsídio do governo e parcelas que cabem no bolso.",
+    type: "MCMV",
   },
   {
     image: property3,
-    name: "Residencial Jardins",
-    location: "Jaboatão dos Guararapes, PE",
-    description: "Seu primeiro imóvel com condições especiais do Minha Casa Minha Vida.",
-    type: "MCMV",
+    name: "Apartamento Litoral Sul",
+    location: "Muro Alto, PE",
+    description: "Ideal para investimento ou lazer. Próximo às praias mais bonitas de Pernambuco.",
+    type: "Litoral",
   },
 ];
 

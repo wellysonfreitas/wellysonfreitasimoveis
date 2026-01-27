@@ -13,24 +13,24 @@ const services = [
     description: "Especialista em imóveis do programa habitacional com subsídios e condições especiais.",
   },
   {
-    icon: Building2,
-    title: "Alto Padrão",
-    description: "Imóveis exclusivos para quem busca sofisticação, conforto e localização privilegiada.",
+    icon: Landmark,
+    title: "Aprovação de Crédito",
+    description: "Suporte integral no processo de financiamento, da simulação à aprovação do crédito imobiliário.",
   },
   {
     icon: Palmtree,
-    title: "Litoral de PE",
-    description: "As melhores oportunidades em Porto de Galinhas, Muro Alto, Carneiros e região.",
+    title: "Investimento no Litoral",
+    description: "As melhores oportunidades para investidores em Porto de Galinhas, Muro Alto e região.",
   },
   {
-    icon: Landmark,
-    title: "Financiamento Caixa",
-    description: "Suporte integral no processo de financiamento, da simulação à aprovação do crédito.",
+    icon: Building2,
+    title: "Consultoria Estratégica",
+    description: "Análise personalizada para encontrar o imóvel ideal de acordo com seu perfil e objetivos.",
   },
   {
     icon: FileCheck,
-    title: "Assessoria Completa",
-    description: "Acompanhamento do início ao fim: documentação, vistoria, registro e entrega das chaves.",
+    title: "Acompanhamento Completo",
+    description: "Do primeiro contato à entrega das chaves: documentação, vistoria, registro e pós-venda.",
   },
 ];
 
