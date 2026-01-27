@@ -3,17 +3,17 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Ricardo foi fundamental na compra do meu primeiro apartamento. Explicou cada detalhe do financiamento e cuidou de toda a burocracia. Recebi as chaves sem nenhuma dor de cabeça!",
+    quote: "Wellyson foi fundamental na compra do meu primeiro apartamento. Explicou cada detalhe do financiamento e cuidou de toda a burocracia. Recebi as chaves sem nenhuma dor de cabeça!",
     name: "Mariana Silva",
     role: "Compradora pelo MCMV",
   },
   {
-    quote: "Profissionalismo e conhecimento de mercado excepcionais. Encontrou exatamente o que eu procurava em Boa Viagem, dentro do meu orçamento e com todas as características que eu desejava.",
+    quote: "Profissionalismo e atenção excepcionais. Encontrou exatamente o que eu procurava para investir no litoral, dentro do meu orçamento e com todas as características que eu desejava.",
     name: "Paulo Roberto Mendes",
     role: "Investidor imobiliário",
   },
   {
-    quote: "A experiência de comprar nosso apartamento de praia foi incrível. Ricardo conhece cada detalhe do litoral pernambucano e nos ajudou a fazer a melhor escolha.",
+    quote: "A experiência de comprar nosso apartamento de praia foi incrível. Wellyson conhece cada detalhe do litoral pernambucano e nos ajudou a fazer a melhor escolha.",
     name: "Ana e Carlos Ferreira",
     role: "Compradores em Porto de Galinhas",
   },

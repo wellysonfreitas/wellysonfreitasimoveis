@@ -53,8 +53,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="font-sans text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Consultoria imobiliária especializada em imóveis econômicos, 
-            alto padrão e litoral em Pernambuco.
+            Consultoria imobiliária especializada em imóveis econômicos (Minha Casa Minha Vida) 
+            e oportunidades no litoral de Pernambuco para investidores.
           </motion.p>
 
           {/* CTA Buttons */}
