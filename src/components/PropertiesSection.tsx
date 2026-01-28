@@ -1,36 +1,84 @@
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
+import propertyWave from "@/assets/property-wave.webp";
+import propertyCosta from "@/assets/property-costa.webp";
+import propertyCitta from "@/assets/property-citta.jpeg";
+import propertyJoa from "@/assets/property-joa.jpeg";
+import propertyRaizes from "@/assets/property-raizes.jpeg";
+import propertyPaineiras from "@/assets/property-paineiras.jpeg";
+import propertyPontal from "@/assets/property-pontal.jpeg";
+import propertyNattu from "@/assets/property-nattu.jpeg";
+import propertyVale from "@/assets/property-vale.png";
 
 const properties = [
   {
-    image: property1,
-    name: "Oportunidade no Litoral",
-    location: "Porto de Galinhas, PE",
-    description: "Excelente opção para investidores. Localização privilegiada e alto potencial de rentabilidade.",
-    type: "Investimento",
-  },
-  {
-    image: property2,
-    name: "Residencial Minha Casa",
-    location: "Jaboatão dos Guararapes, PE",
-    description: "Realize o sonho da casa própria com subsídio do governo e parcelas que cabem no bolso.",
+    image: propertyWave,
+    name: "Wave Boa Viagem",
+    location: "Imbiribeira, Recife - PE",
+    description: "Próximo ao Shopping Recife e Uninassau. Excelente localização com fácil acesso e infraestrutura completa.",
     type: "MCMV",
   },
   {
-    image: property3,
-    name: "Apartamento Litoral Sul",
-    location: "Muro Alto, PE",
-    description: "Ideal para investimento ou lazer. Próximo às praias mais bonitas de Pernambuco.",
-    type: "Litoral",
+    image: propertyCosta,
+    name: "Costa dos Coqueiros",
+    location: "Carneiros, PE",
+    description: "Oportunidade única no litoral sul. Ideal para investidores que buscam rentabilidade e valorização.",
+    type: "Investimento",
+  },
+  {
+    image: propertyCitta,
+    name: "Città San Martin",
+    location: "San Martin, Recife - PE",
+    description: "Condomínio completo com lazer e segurança. Realize o sonho da casa própria com parcelas acessíveis.",
+    type: "MCMV",
+  },
+  {
+    image: propertyJoa,
+    name: "Alto do Joá",
+    location: "Camaragibe, PE",
+    description: "Localizado ao lado do Atacadão. Infraestrutura completa e fácil acesso ao transporte público.",
+    type: "MCMV",
+  },
+  {
+    image: propertyRaizes,
+    name: "Raízes",
+    location: "Ilha do Leite, Recife - PE",
+    description: "Ao lado do Colégio Salesiano. Localização privilegiada com vista panorâmica da cidade.",
+    type: "Alto Padrão",
+  },
+  {
+    image: propertyPaineiras,
+    name: "Viva Paineiras",
+    location: "Paulista, PE",
+    description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
+    type: "MCMV",
+  },
+  {
+    image: propertyPontal,
+    name: "Pontal de Maracaípe",
+    location: "Fragoso, Olinda - PE",
+    description: "Próximo a Rio Doce. Ambiente tranquilo e familiar com toda a infraestrutura necessária.",
+    type: "MCMV",
+  },
+  {
+    image: propertyNattu,
+    name: "Pátio Nattu",
+    location: "Caxangá, Recife - PE",
+    description: "Próximo à UPA da Caxangá. Condomínio moderno com lazer completo para toda a família.",
+    type: "MCMV",
+  },
+  {
+    image: propertyVale,
+    name: "Vale Caxangá Golf Club",
+    location: "Várzea, Recife - PE",
+    description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde.",
+    type: "MCMV",
   },
 ];
 
 const PropertiesSection = () => {
-  const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis.";
+  const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre o empreendimento ";
 
   return (
     <section id="imoveis" className="section-padding bg-background">
@@ -50,7 +98,7 @@ const PropertiesSection = () => {
             Imóveis em destaque
           </h2>
           <p className="font-sans text-muted-foreground leading-relaxed">
-            Conheça algumas das melhores oportunidades disponíveis em Pernambuco.
+            Conheça as melhores oportunidades em Minha Casa Minha Vida e investimentos no litoral de Pernambuco.
           </p>
         </motion.div>
 
