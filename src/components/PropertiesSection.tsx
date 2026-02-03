@@ -198,7 +198,7 @@ const MCMVCard = ({ property, whatsappLink }: { property: Property; whatsappLink
         variant="outline"
         className="w-full btn-outline-gold font-sans text-sm font-medium gap-2 group/btn"
       >
-        <a href={`${whatsappLink}${property.name}`} target="_blank" rel="noopener noreferrer">
+        <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
           Quero saber mais
           <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
         </a>
@@ -216,7 +216,7 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
     transition={{ duration: 0.5 }}
     className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
   >
-    <a href={`${whatsappLink}${property.name}`} target="_blank" rel="noopener noreferrer">
+    <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer" className="block">
       {/* Image with overlay */}
       <div className="relative aspect-[3/4] overflow-hidden">
         <img
