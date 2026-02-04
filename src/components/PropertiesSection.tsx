@@ -21,6 +21,8 @@ import propertyCostaMar from "@/assets/property-costa-mar.jpeg";
 import propertyHabita from "@/assets/property-habita.jpeg";
 import propertyOrla from "@/assets/property-orla.jpeg";
 import propertyTropi from "@/assets/property-tropi.jpeg";
+import propertyNature from "@/assets/property-nature.jpeg";
+import propertyCostaAzul from "@/assets/property-costa-azul.jpeg";
 
 interface Property {
   image: string;
@@ -160,6 +162,26 @@ const properties: Property[] = [
     bedrooms: "2 e 3 quartos",
     area: "56.87 a 149.46m²",
   },
+  {
+    image: propertyNature,
+    name: "Naturê Eco Residência",
+    location: "Muro Alto, PE",
+    description: "Eco residência moderna com design sustentável e vista privilegiada para o mar.",
+    type: "Investimento",
+    category: "litoral",
+    bedrooms: "Studio, 2 e 3 quartos",
+    area: "30.27 a 149.46m²",
+  },
+  {
+    image: propertyCostaAzul,
+    name: "Costa Azul",
+    location: "Praia dos Carneiros, PE",
+    description: "Empreendimento exclusivo com arquitetura moderna e acabamento de alto padrão.",
+    type: "Investimento",
+    category: "litoral",
+    bedrooms: "Studio, 2 e 3 quartos",
+    area: "24.89 a 87.23m²",
+  },
 ];
 
 // Card for MCMV properties
@@ -214,49 +236,58 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
-    className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+    className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
   >
-    <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer" className="block">
-      {/* Image with overlay */}
-      <div className="relative aspect-[3/4] overflow-hidden">
-        <img
-          src={property.image}
-          alt={property.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent" />
+    {/* Image with overlay */}
+    <div className="relative aspect-[3/4] overflow-hidden">
+      <img
+        src={property.image}
+        alt={property.name}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-transparent" />
+      
+      {/* Content overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6">
+        {/* Location tag */}
+        <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+          {property.location}
+        </span>
         
-        {/* Content overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-6">
-          {/* Location tag */}
-          <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2">
-            {property.location}
-          </span>
-          
-          {/* Property name */}
-          <h3 className="font-serif text-2xl md:text-3xl font-medium text-white mb-4 leading-tight">
-            {property.name}
-          </h3>
-          
-          {/* Property details */}
-          <div className="flex flex-wrap items-center gap-4 text-white/90">
-            {property.bedrooms && (
-              <div className="flex items-center gap-2">
-                <BedDouble className="w-4 h-4 text-primary" />
-                <span className="font-sans text-sm">{property.bedrooms}</span>
-              </div>
-            )}
-            {property.area && (
-              <div className="flex items-center gap-2">
-                <Maximize2 className="w-4 h-4 text-primary" />
-                <span className="font-sans text-sm">{property.area}</span>
-              </div>
-            )}
-          </div>
+        {/* Property name */}
+        <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-3 leading-tight">
+          {property.name}
+        </h3>
+        
+        {/* Property details */}
+        <div className="flex flex-wrap items-center gap-3 text-white/90 mb-4">
+          {property.bedrooms && (
+            <div className="flex items-center gap-1.5">
+              <BedDouble className="w-4 h-4 text-primary" />
+              <span className="font-sans text-xs">{property.bedrooms}</span>
+            </div>
+          )}
+          {property.area && (
+            <div className="flex items-center gap-1.5">
+              <Maximize2 className="w-4 h-4 text-primary" />
+              <span className="font-sans text-xs">{property.area}</span>
+            </div>
+          )}
         </div>
+
+        {/* CTA Button */}
+        <Button
+          asChild
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-medium gap-2 group/btn"
+        >
+          <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
+            Quero saber mais
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </a>
+        </Button>
       </div>
-    </a>
+    </div>
   </motion.div>
 );
 
@@ -298,18 +329,20 @@ const PropertiesSection = () => {
           className="flex justify-center mb-12"
         >
           <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "litoral" | "mcmv")} className="w-auto">
-            <TabsList className="bg-muted/50 p-1 h-auto">
+            <TabsList className="bg-card border border-border p-1.5 h-auto rounded-full shadow-lg">
               <TabsTrigger
                 value="litoral"
-                className="font-sans text-sm font-medium px-6 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+                className="font-sans text-sm font-medium px-8 py-3 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-300"
               >
-                🏖️ Litoral & Investimento
+                <span className="mr-2">🏖️</span>
+                Litoral & Investimento
               </TabsTrigger>
               <TabsTrigger
                 value="mcmv"
-                className="font-sans text-sm font-medium px-6 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"
+                className="font-sans text-sm font-medium px-8 py-3 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-300"
               >
-                🏠 MCMV & Residencial
+                <span className="mr-2">🏠</span>
+                MCMV & Residencial
               </TabsTrigger>
             </TabsList>
           </Tabs>
