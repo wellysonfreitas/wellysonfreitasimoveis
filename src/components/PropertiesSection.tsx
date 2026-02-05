@@ -379,6 +379,7 @@ const PropertiesSection = () => {
               >
                 <span className="mr-2">🏠</span>
                 MCMV & Residencial
+              MCMV & Cidade
               </TabsTrigger>
             </TabsList>
           </Tabs>
