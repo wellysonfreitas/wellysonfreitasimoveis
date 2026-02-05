@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ArrowRight, BedDouble, Maximize2 } from "lucide-react";
+import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 // MCMV Properties
 import propertyWave from "@/assets/property-wave.webp";
@@ -29,6 +30,7 @@ interface Property {
   name: string;
   location: string;
   description: string;
+  fullDescription?: string;
   type: string;
   category: "mcmv" | "litoral";
   bedrooms?: string;
@@ -38,11 +40,35 @@ interface Property {
 const properties: Property[] = [
   // MCMV Properties
   {
+    image: propertyRaizes,
+    name: "Raízes",
+    location: "Ilha do Leite, Recife - PE",
+    description: "Ao lado do Colégio Salesiano. Localização privilegiada com vista panorâmica da cidade.",
+    type: "CIDADE",
+    category: "mcmv",
+  },
+  {
+    image: propertyVale,
+    name: "Vale Caxangá Golf Club",
+    location: "Várzea, Recife - PE",
+    description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde.",
+    type: "CIDADE",
+    category: "mcmv",
+  },
+  {
     image: propertyWave,
     name: "Wave Boa Viagem",
     location: "Imbiribeira, Recife - PE",
     description: "Próximo ao Shopping Recife e Uninassau. Excelente localização com fácil acesso e infraestrutura completa.",
-    type: "MCMV",
+    type: "CIDADE",
+    category: "mcmv",
+  },
+  {
+    image: propertyPaineiras,
+    name: "Viva Paineiras",
+    location: "Paulista, PE",
+    description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
+    type: "CIDADE",
     category: "mcmv",
   },
   {
@@ -62,22 +88,6 @@ const properties: Property[] = [
     category: "mcmv",
   },
   {
-    image: propertyRaizes,
-    name: "Raízes",
-    location: "Ilha do Leite, Recife - PE",
-    description: "Ao lado do Colégio Salesiano. Localização privilegiada com vista panorâmica da cidade.",
-    type: "Alto Padrão",
-    category: "mcmv",
-  },
-  {
-    image: propertyPaineiras,
-    name: "Viva Paineiras",
-    location: "Paulista, PE",
-    description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
-    type: "MCMV",
-    category: "mcmv",
-  },
-  {
     image: propertyPontal,
     name: "Pontal de Maracaípe",
     location: "Fragoso, Olinda - PE",
@@ -93,94 +103,94 @@ const properties: Property[] = [
     type: "MCMV",
     category: "mcmv",
   },
-  {
-    image: propertyVale,
-    name: "Vale Caxangá Golf Club",
-    location: "Várzea, Recife - PE",
-    description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde.",
-    type: "MCMV",
-    category: "mcmv",
-  },
-  // Litoral Properties
+  // Litoral Properties (ordenados: Costa dos Coqueiros, Orla, Habitá, Boulevard, Costa Azul, Costa do Mar, Naturê, Tropí)
   {
     image: propertyCosta,
     name: "Costa dos Coqueiros",
     location: "Praia dos Carneiros, PE",
-    description: "Oportunidade única no litoral sul. Ideal para investidores que buscam rentabilidade e valorização.",
+    description: "Empreendimento em região de crescimento turístico e forte valorização, ideal para renda com locações e uso próprio.",
+    fullDescription: "O Costa dos Coqueiros é um projeto voltado para investidores que buscam valorização e geração de renda no litoral nordestino. Com localização estratégica e crescente demanda turística, o empreendimento oferece estrutura de lazer, conforto e excelente potencial para locações por temporada. Uma oportunidade para quem deseja diversificar patrimônio em um destino em expansão.",
     type: "Investimento",
     category: "litoral",
     bedrooms: "Studio e 2 quartos",
     area: "24.96 a 79.12m²",
   },
   {
-    image: propertyBoulevard,
-    name: "Boulevard Praia dos Carneiros",
-    location: "Praia dos Carneiros, PE",
-    description: "Empreendimento exclusivo com vista para o mar. Alta valorização e rentabilidade garantida.",
-    type: "Investimento",
-    category: "litoral",
-    bedrooms: "Studio, 2 e 3 quartos",
-    area: "25.20 a 99.61m²",
-  },
-  {
-    image: propertyCostaMar,
-    name: "Costa do Mar",
-    location: "Praia dos Carneiros, PE",
-    description: "Arquitetura moderna com acabamento premium. Perfeito para quem busca lazer e investimento.",
-    type: "Investimento",
-    category: "litoral",
-    bedrooms: "Studio, 2 e 3 quartos",
-    area: "24.89 a 87.23m²",
-  },
-  {
-    image: propertyHabita,
-    name: "Habitá Praia do Cupe",
-    location: "Praia do Cupe, PE",
-    description: "Resort residencial de alto padrão. Vista privilegiada para o mar e área de lazer completa.",
-    type: "Investimento",
-    category: "litoral",
-    bedrooms: "2 a 6 quartos",
-    area: "59.67 a 650.92m²",
-  },
-  {
     image: propertyOrla,
     name: "Orla Praia dos Carneiros",
     location: "Praia dos Carneiros, PE",
-    description: "À beira-mar com infraestrutura completa. Ideal para férias em família ou renda por temporada.",
+    description: "Empreendimento à beira-mar com grande potencial de valorização e renda.",
+    fullDescription: "O Orla Praia dos Carneiros oferece uma experiência de resort em uma das praias mais paradisíacas do Brasil. Com unidades frente mar e estrutura completa, o projeto se destaca pela alta demanda turística e potencial de rentabilidade em locações de curta temporada.",
     type: "Investimento",
     category: "litoral",
     bedrooms: "2 a 6 quartos",
     area: "59.67 a 218.05m²",
   },
   {
-    image: propertyTropi,
-    name: "Tropí Eco Residência",
-    location: "Praia de Muro Alto, PE",
-    description: "Eco residência sustentável em uma das praias mais belas do litoral pernambucano.",
+    image: propertyHabita,
+    name: "Habitá Praia do Cupe",
+    location: "Praia do Cupe, PE",
+    description: "No polo turístico de Porto de Galinhas, ideal para renda recorrente com locações.",
+    fullDescription: "Localizado na Praia do Cupe, em Porto de Galinhas, o Habitá é uma excelente opção para quem deseja investir em um destino consolidado. A região possui alta taxa de ocupação durante o ano inteiro, o que favorece a geração de renda com aluguel de temporada e a valorização constante do imóvel.",
     type: "Investimento",
     category: "litoral",
-    bedrooms: "2 e 3 quartos",
-    area: "56.87 a 149.46m²",
+    bedrooms: "2 a 6 quartos",
+    area: "59.67 a 650.92m²",
+  },
+  {
+    image: propertyBoulevard,
+    name: "Boulevard Praia dos Carneiros",
+    location: "Praia dos Carneiros, PE",
+    description: "Sofisticação em Carneiros com alto potencial de rentabilidade em locações de temporada.",
+    fullDescription: "O Boulevard Praia dos Carneiros está localizado em um dos destinos mais desejados do Nordeste. O projeto une exclusividade, lazer completo e forte demanda turística durante todo o ano. Ideal para investidores que buscam renda com aluguel por temporada e valorização em uma das praias mais prestigiadas de Pernambuco.",
+    type: "Investimento",
+    category: "litoral",
+    bedrooms: "Studio, 2 e 3 quartos",
+    area: "25.20 a 99.61m²",
+  },
+  {
+    image: propertyCostaAzul,
+    name: "Costa Azul",
+    location: "Praia dos Carneiros, PE",
+    description: "Localização estratégica no litoral com foco em valorização e renda.",
+    fullDescription: "O Costa Azul é ideal para quem busca entrar no mercado imobiliário turístico com segurança. Com lazer completo e localização em área de expansão, o empreendimento possui forte potencial de valorização e geração de renda com locações.",
+    type: "Investimento",
+    category: "litoral",
+    bedrooms: "Studio, 2 e 3 quartos",
+    area: "24.89 a 87.23m²",
+  },
+  {
+    image: propertyCostaMar,
+    name: "Costa do Mar",
+    location: "Praia dos Carneiros, PE",
+    description: "Projeto moderno no litoral com foco em valorização e renda com locações.",
+    fullDescription: "O Costa do Mar foi pensado para quem busca investir em um imóvel versátil, com unidades funcionais e excelente potencial de valorização. Com estrutura de lazer e localização estratégica, é ideal para uso próprio e geração de renda através de locações de curta temporada.",
+    type: "Investimento",
+    category: "litoral",
+    bedrooms: "Studio, 2 e 3 quartos",
+    area: "24.89 a 87.23m²",
   },
   {
     image: propertyNature,
     name: "Naturê Eco Residência",
     location: "Muro Alto, PE",
-    description: "Eco residência moderna com design sustentável e vista privilegiada para o mar.",
+    description: "Qualidade de vida, natureza e potencial de valorização no litoral.",
+    fullDescription: "O Naturê Eco Residência combina conforto, sustentabilidade e localização estratégica. O projeto atende à crescente procura por destinos tranquilos e exclusivos, oferecendo excelente oportunidade de investimento com valorização e renda.",
     type: "Investimento",
     category: "litoral",
     bedrooms: "Studio, 2 e 3 quartos",
     area: "30.27 a 149.46m²",
   },
   {
-    image: propertyCostaAzul,
-    name: "Costa Azul",
-    location: "Praia dos Carneiros, PE",
-    description: "Empreendimento exclusivo com arquitetura moderna e acabamento de alto padrão.",
+    image: propertyTropi,
+    name: "Tropí Eco Residência",
+    location: "Praia de Muro Alto, PE",
+    description: "Conceito sustentável e integração com a natureza em destino turístico crescente.",
+    fullDescription: "O Tropí Eco Residência traz uma proposta moderna e sustentável, com integração à natureza e foco em bem-estar. Ideal para quem busca um imóvel diferenciado para uso próprio e também para locação em um mercado que valoriza experiências exclusivas.",
     type: "Investimento",
     category: "litoral",
-    bedrooms: "Studio, 2 e 3 quartos",
-    area: "24.89 a 87.23m²",
+    bedrooms: "2 e 3 quartos",
+    area: "56.87 a 149.46m²",
   },
 ];
 
@@ -230,66 +240,92 @@ const MCMVCard = ({ property, whatsappLink }: { property: Property; whatsappLink
 );
 
 // Premium card for Litoral properties (based on reference image)
-const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-    className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
-  >
-    {/* Image with overlay */}
-    <div className="relative aspect-[3/4] overflow-hidden">
-      <img
-        src={property.image}
-        alt={property.name}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      />
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-transparent" />
-      
-      {/* Content overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
-        {/* Location tag */}
-        <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2">
-          {property.location}
-        </span>
-        
-        {/* Property name */}
-        <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-3 leading-tight">
-          {property.name}
-        </h3>
-        
-        {/* Property details */}
-        <div className="flex flex-wrap items-center gap-3 text-white/90 mb-4">
-          {property.bedrooms && (
-            <div className="flex items-center gap-1.5">
-              <BedDouble className="w-4 h-4 text-primary" />
-              <span className="font-sans text-xs">{property.bedrooms}</span>
-            </div>
-          )}
-          {property.area && (
-            <div className="flex items-center gap-1.5">
-              <Maximize2 className="w-4 h-4 text-primary" />
-              <span className="font-sans text-xs">{property.area}</span>
-            </div>
-          )}
-        </div>
+const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-        {/* CTA Button */}
-        <Button
-          asChild
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-medium gap-2 group/btn"
-        >
-          <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
-            Quero saber mais
-            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-          </a>
-        </Button>
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+    >
+      {/* Image with overlay */}
+      <div className="relative aspect-[3/4] overflow-hidden">
+        <img
+          src={property.image}
+          alt={property.name}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-transparent" />
+        
+        {/* Content overlay */}
+        <div className="absolute inset-0 flex flex-col justify-end p-6">
+          {/* Location tag */}
+          <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+            {property.location}
+          </span>
+          
+          {/* Property name */}
+          <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-3 leading-tight">
+            {property.name}
+          </h3>
+          
+          {/* Property details */}
+          <div className="flex flex-wrap items-center gap-3 text-white/90 mb-3">
+            {property.bedrooms && (
+              <div className="flex items-center gap-1.5">
+                <BedDouble className="w-4 h-4 text-primary" />
+                <span className="font-sans text-xs">{property.bedrooms}</span>
+              </div>
+            )}
+            {property.area && (
+              <div className="flex items-center gap-1.5">
+                <Maximize2 className="w-4 h-4 text-primary" />
+                <span className="font-sans text-xs">{property.area}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Short description */}
+          <p className="font-sans text-xs text-white/80 leading-relaxed mb-3">
+            {property.description}
+          </p>
+
+          {/* Collapsible full description */}
+          {property.fullDescription && (
+            <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+              <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-3">
+                <span className="font-sans text-xs font-medium">
+                  {isOpen ? "Ver menos" : "Ver mais detalhes"}
+                </span>
+                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+                <p className="font-sans text-xs text-white/70 leading-relaxed mb-3">
+                  {property.fullDescription}
+                </p>
+              </CollapsibleContent>
+            </Collapsible>
+          )}
+
+          {/* CTA Button */}
+          <Button
+            asChild
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-medium gap-2 group/btn"
+          >
+            <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
+              Quero saber mais
+              <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+            </a>
+          </Button>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 const PropertiesSection = () => {
   const [activeTab, setActiveTab] = useState<"litoral" | "mcmv">("litoral");
