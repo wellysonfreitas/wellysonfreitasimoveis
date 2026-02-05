@@ -378,8 +378,7 @@ const PropertiesSection = () => {
                 className="font-sans text-sm font-medium px-8 py-3 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all duration-300"
               >
                 <span className="mr-2">🏠</span>
-                MCMV & Residencial
-              MCMV & Cidade
+                MCMV & Cidade
               </TabsTrigger>
             </TabsList>
           </Tabs>
