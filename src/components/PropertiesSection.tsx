@@ -24,6 +24,11 @@ import propertyOrla from "@/assets/property-orla.jpeg";
 import propertyTropi from "@/assets/property-tropi.jpeg";
 import propertyNature from "@/assets/property-nature.jpeg";
 import propertyCostaAzul from "@/assets/property-costa-azul.jpeg";
+import propertyGranResort from "@/assets/property-gran-resort.jpg";
+import propertyKoa from "@/assets/property-koa.jpeg";
+import propertyMauna from "@/assets/property-mauna.jpg";
+import propertyNau from "@/assets/property-nau.jpg";
+import propertyMarano from "@/assets/property-marano.png";
 
 interface Property {
   image: string;
@@ -103,7 +108,54 @@ const properties: Property[] = [
     type: "MCMV",
     category: "mcmv",
   },
-  // Litoral Properties (ordenados: Costa dos Coqueiros, Orla, Habitá, Boulevard, Costa Azul, Costa do Mar, Naturê, Tropí)
+  // Litoral Properties
+  {
+    image: propertyGranResort,
+    name: "Gran Resort Maragogi",
+    location: "Praia de Maragogi, AL",
+    description: "Resort de alto padrão em Maragogi, com grande potencial de valorização e renda com locação por temporada.",
+    fullDescription: "Um resort imobiliário de alto padrão no coração do Caribe Brasileiro. O Gran Resort Maragogi une localização estratégica à beira-mar de Peroba com um projeto voltado para lazer completo, valorização e alta demanda por locação por temporada. Com unidades compactas e funcionais, é uma excelente oportunidade para quem busca investir em uma das regiões que mais cresce no turismo do Nordeste, próxima ao futuro aeroporto de Maragogi e com grande potencial de rentabilidade.",
+    type: "Investimento",
+    category: "litoral",
+    bedrooms: "Studios, 1 e 2 quartos",
+    area: "22.50 a 84m²",
+  },
+  {
+    image: propertyKoa,
+    name: "KOA",
+    location: "Porto de Galinhas, PE",
+    description: "Projeto moderno com perfil de investimento e alta demanda por locações no litoral.",
+    fullDescription: "O KOA é um empreendimento com conceito moderno e lifestyle praiano, pensado para quem deseja unir lazer, conforto e investimento em uma região turística em crescimento. Com unidades compactas e áreas de convivência que valorizam a experiência do morador e do hóspede, o projeto se destaca como opção ideal para segunda moradia ou geração de renda com aluguel de temporada.",
+    type: "Investimento",
+    category: "litoral",
+  },
+  {
+    image: propertyMarano,
+    name: "Marano Beira-Mar",
+    location: "Porto de Galinhas, PE",
+    description: "Beira-mar em Porto de Galinhas com rooftop e lazer completo — ideal para rentabilidade com locações.",
+    fullDescription: "Localizado à beira-mar de Porto de Galinhas, o Marano entrega sofisticação e exclusividade em um dos destinos mais desejados do Nordeste. O empreendimento oferece studios a duplex com varanda gourmet e rooftop com vista para o mar, além de lazer completo com piscina, academia e espaços de convivência. Ideal para investidores que buscam valorização patrimonial e excelente retorno com locações de curta temporada.",
+    type: "Investimento",
+    category: "litoral",
+  },
+  {
+    image: propertyMauna,
+    name: "Mauna",
+    location: "Praia de Tamandaré, PE",
+    description: "Empreendimento moderno com forte potencial de valorização e renda com locação.",
+    fullDescription: "O Mauna é um projeto que une arquitetura contemporânea, conforto e praticidade em uma proposta voltada para moradia de lazer e investimento. Com unidades compactas e estrutura pensada para o dia a dia e temporadas, o empreendimento se destaca pela valorização da região e pelo potencial de retorno com aluguel por temporada.",
+    type: "Investimento",
+    category: "litoral",
+  },
+  {
+    image: propertyNau,
+    name: "Nau Home Resort",
+    location: "Praia dos Carneiros, PE",
+    description: "Resort residencial com lazer completo e alto potencial de retorno em locações.",
+    fullDescription: "O Nau Home Resort foi planejado para oferecer a experiência de um resort com a praticidade de um investimento imobiliário inteligente. Com lazer completo, unidades funcionais e localização estratégica no litoral, o projeto atende tanto quem busca um refúgio à beira-mar quanto investidores interessados em renda recorrente com locações de temporada.",
+    type: "Investimento",
+    category: "litoral",
+  },
   {
     image: propertyCosta,
     name: "Costa dos Coqueiros",
