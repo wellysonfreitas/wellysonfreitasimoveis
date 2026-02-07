@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown } from "lucide-react";
+import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -61,6 +61,8 @@ const properties: Property[] = [
     description: "Ao lado do Colégio Salesiano. Localização privilegiada no centro do Recife com fácil acesso e toda infraestrutura urbana.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2, 3 e 4 quartos",
+    area: "50 a 196m²",
   },
   {
     image: propertySplendore,
@@ -69,6 +71,8 @@ const properties: Property[] = [
     description: "Empreendimento moderno em uma das regiões mais valorizadas do Recife, com lazer completo e acabamento de alto padrão.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 e 3 quartos",
+    area: "55 a 75m²",
   },
   {
     image: propertyVale,
@@ -77,6 +81,8 @@ const properties: Property[] = [
     description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde e qualidade de vida.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "47 a 61m²",
   },
   {
     image: propertyWave,
@@ -85,6 +91,8 @@ const properties: Property[] = [
     description: "Próximo ao Shopping Recife e Uninassau. Excelente localização com fácil acesso e infraestrutura completa.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 e 3 quartos",
+    area: "46 a 58m²",
   },
   {
     image: propertyEstilo,
@@ -103,6 +111,8 @@ const properties: Property[] = [
     description: "Condomínio Minha Casa Minha Vida com estrutura completa, lazer e segurança para toda a família.",
     type: "MCMV",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "41m²",
   },
   {
     image: propertySolare,
@@ -131,6 +141,8 @@ const properties: Property[] = [
     description: "Condomínio moderno com lazer completo incluindo piscina, quadra e área verde. Localização privilegiada na Caxangá.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "45 a 55m²",
   },
   {
     image: propertyCurado,
@@ -169,6 +181,8 @@ const properties: Property[] = [
     description: "Condomínio completo com lazer e segurança. Realize o sonho da casa própria com parcelas acessíveis.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "1 e 2 quartos",
+    area: "33 a 35m²",
   },
   {
     image: propertyParaiso,
@@ -187,14 +201,18 @@ const properties: Property[] = [
     description: "Localizado ao lado do Atacadão. Infraestrutura completa e fácil acesso ao transporte público.",
     type: "MCMV",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "41m²",
   },
   {
     image: propertyPaineiras,
     name: "Viva Paineiras",
-    location: "Paulista, PE",
+    location: "Jardim Paulista, Paulista - PE",
     description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "50 a 54m²",
   },
   {
     image: propertyPontal,
@@ -203,6 +221,8 @@ const properties: Property[] = [
     description: "Próximo a Rio Doce. Ambiente tranquilo e familiar com toda a infraestrutura necessária.",
     type: "MCMV",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "41m²",
   },
   {
     image: propertyNattu,
@@ -211,6 +231,8 @@ const properties: Property[] = [
     description: "Próximo à UPA da Caxangá. Condomínio moderno com lazer completo para toda a família.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "45m²",
   },
   // Litoral Properties
   {
@@ -320,6 +342,8 @@ const properties: Property[] = [
     fullDescription: "O KOA é um empreendimento com conceito moderno e lifestyle praiano, pensado para quem deseja unir lazer, conforto e investimento em uma região turística em crescimento. Com unidades compactas e áreas de convivência que valorizam a experiência do morador e do hóspede, o projeto se destaca como opção ideal para segunda moradia ou geração de renda com aluguel de temporada.",
     type: "Investimento",
     category: "litoral",
+    bedrooms: "Studio e 2 quartos",
+    area: "24 a 65m²",
   },
   {
     image: propertyMarano,
@@ -329,6 +353,8 @@ const properties: Property[] = [
     fullDescription: "Localizado à beira-mar de Porto de Galinhas, o Marano entrega sofisticação e exclusividade em um dos destinos mais desejados do Nordeste. O empreendimento oferece studios a duplex com varanda gourmet e rooftop com vista para o mar, além de lazer completo com piscina, academia e espaços de convivência. Ideal para investidores que buscam valorização patrimonial e excelente retorno com locações de curta temporada.",
     type: "Investimento",
     category: "litoral",
+    bedrooms: "Studio a 2 quartos",
+    area: "20 a 70m²",
   },
   {
     image: propertyMauna,
@@ -338,6 +364,8 @@ const properties: Property[] = [
     fullDescription: "O Mauna é um projeto que une arquitetura contemporânea, conforto e praticidade em uma proposta voltada para moradia de lazer e investimento. Com unidades compactas e estrutura pensada para o dia a dia e temporadas, o empreendimento se destaca pela valorização da região e pelo potencial de retorno com aluguel por temporada.",
     type: "Investimento",
     category: "litoral",
+    bedrooms: "1 e 2 quartos",
+    area: "35 a 70m²",
   },
   {
     image: propertyNau,
@@ -347,8 +375,12 @@ const properties: Property[] = [
     fullDescription: "O Nau Home Resort foi planejado para oferecer a experiência de um resort com a praticidade de um investimento imobiliário inteligente. Com lazer completo, unidades funcionais e localização estratégica no litoral, o projeto atende tanto quem busca um refúgio à beira-mar quanto investidores interessados em renda recorrente com locações de temporada.",
     type: "Investimento",
     category: "litoral",
+    bedrooms: "Studio e 1 quarto",
+    area: "20 a 59m²",
   },
 ];
+
+const ITEMS_PER_PAGE = 6;
 
 // Card for MCMV properties
 const MCMVCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => (
@@ -411,7 +443,7 @@ const MCMVCard = ({ property, whatsappLink }: { property: Property; whatsappLink
   </motion.div>
 );
 
-// Premium card for Litoral properties (based on reference image)
+// Premium card for Litoral properties
 const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -501,10 +533,23 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
 
 const PropertiesSection = () => {
   const [activeTab, setActiveTab] = useState<"litoral" | "mcmv">("litoral");
+  const [showAllLitoral, setShowAllLitoral] = useState(false);
+  const [showAllMcmv, setShowAllMcmv] = useState(false);
   const whatsappLink = "https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre o empreendimento ";
 
   const mcmvProperties = properties.filter((p) => p.category === "mcmv");
   const litoralProperties = properties.filter((p) => p.category === "litoral");
+
+  const visibleLitoralProperties = showAllLitoral 
+    ? litoralProperties 
+    : litoralProperties.slice(0, ITEMS_PER_PAGE);
+  
+  const visibleMcmvProperties = showAllMcmv 
+    ? mcmvProperties 
+    : mcmvProperties.slice(0, ITEMS_PER_PAGE);
+
+  const hasMoreLitoral = litoralProperties.length > ITEMS_PER_PAGE;
+  const hasMoreMcmv = mcmvProperties.length > ITEMS_PER_PAGE;
 
   return (
     <section id="imoveis" className="section-padding bg-background">
@@ -565,11 +610,48 @@ const PropertiesSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {litoralProperties.map((property) => (
-                <LitoralCard key={property.name} property={property} whatsappLink={whatsappLink} />
-              ))}
+              {/* Grid with fade effect for hidden items */}
+              <div className="relative">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {visibleLitoralProperties.map((property) => (
+                    <LitoralCard key={property.name} property={property} whatsappLink={whatsappLink} />
+                  ))}
+                </div>
+                
+                {/* Fade overlay when not showing all */}
+                {!showAllLitoral && hasMoreLitoral && (
+                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+                )}
+              </div>
+              
+              {/* See more button */}
+              {hasMoreLitoral && (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex justify-center mt-8"
+                >
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() => setShowAllLitoral(!showAllLitoral)}
+                    className="btn-outline-gold font-sans font-medium gap-2 group"
+                  >
+                    {showAllLitoral ? (
+                      <>
+                        Ver menos
+                        <ChevronDown className="w-4 h-4 rotate-180 transition-transform" />
+                      </>
+                    ) : (
+                      <>
+                        Ver mais {litoralProperties.length - ITEMS_PER_PAGE} opções
+                        <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
+              )}
             </motion.div>
           ) : (
             <motion.div
@@ -578,11 +660,48 @@ const PropertiesSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {mcmvProperties.map((property) => (
-                <MCMVCard key={property.name} property={property} whatsappLink={whatsappLink} />
-              ))}
+              {/* Grid with fade effect for hidden items */}
+              <div className="relative">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {visibleMcmvProperties.map((property) => (
+                    <MCMVCard key={property.name} property={property} whatsappLink={whatsappLink} />
+                  ))}
+                </div>
+                
+                {/* Fade overlay when not showing all */}
+                {!showAllMcmv && hasMoreMcmv && (
+                  <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+                )}
+              </div>
+              
+              {/* See more button */}
+              {hasMoreMcmv && (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex justify-center mt-8"
+                >
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() => setShowAllMcmv(!showAllMcmv)}
+                    className="btn-outline-gold font-sans font-medium gap-2 group"
+                  >
+                    {showAllMcmv ? (
+                      <>
+                        Ver menos
+                        <ChevronDown className="w-4 h-4 rotate-180 transition-transform" />
+                      </>
+                    ) : (
+                      <>
+                        Ver mais {mcmvProperties.length - ITEMS_PER_PAGE} opções
+                        <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
