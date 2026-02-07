@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
-// MCMV Properties
+// MCMV & Cidade Properties
 import propertyWave from "@/assets/property-wave.webp";
 import propertyCitta from "@/assets/property-citta.jpeg";
 import propertyJoa from "@/assets/property-joa.jpeg";
@@ -14,6 +14,16 @@ import propertyPaineiras from "@/assets/property-paineiras.jpeg";
 import propertyPontal from "@/assets/property-pontal.jpeg";
 import propertyNattu from "@/assets/property-nattu.jpeg";
 import propertyVale from "@/assets/property-vale.png";
+import propertySplendore from "@/assets/property-splendore.jpg";
+import propertyEstilo from "@/assets/property-estilo.webp";
+import propertySolare from "@/assets/property-solare.png";
+import propertyHori from "@/assets/property-hori.png";
+import propertyCandeias from "@/assets/property-candeias.jpg";
+import propertyConquista from "@/assets/property-conquista.webp";
+import propertyPrimavera from "@/assets/property-primavera.webp";
+import propertyCurado from "@/assets/property-curado.jpg";
+import propertyPalmeiras from "@/assets/property-palmeiras.jpg";
+import propertyParaiso from "@/assets/property-paraiso.jpg";
 
 // Litoral Properties
 import propertyCosta from "@/assets/property-costa.webp";
@@ -43,12 +53,20 @@ interface Property {
 }
 
 const properties: Property[] = [
-  // MCMV Properties
+  // MCMV & Cidade Properties - Nova ordem: Raízes, Splendore, Vale, Wave, depois intercalando
   {
     image: propertyRaizes,
     name: "Raízes",
     location: "Ilha do Leite, Recife - PE",
-    description: "Ao lado do Colégio Salesiano. Localização privilegiada com vista panorâmica da cidade.",
+    description: "Ao lado do Colégio Salesiano. Localização privilegiada no centro do Recife com fácil acesso e toda infraestrutura urbana.",
+    type: "CIDADE",
+    category: "mcmv",
+  },
+  {
+    image: propertySplendore,
+    name: "Splendore Boa Viagem",
+    location: "Boa Viagem, Recife - PE",
+    description: "Empreendimento moderno em uma das regiões mais valorizadas do Recife, com lazer completo e acabamento de alto padrão.",
     type: "CIDADE",
     category: "mcmv",
   },
@@ -56,7 +74,7 @@ const properties: Property[] = [
     image: propertyVale,
     name: "Vale Caxangá Golf Club",
     location: "Várzea, Recife - PE",
-    description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde.",
+    description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde e qualidade de vida.",
     type: "CIDADE",
     category: "mcmv",
   },
@@ -69,20 +87,98 @@ const properties: Property[] = [
     category: "mcmv",
   },
   {
-    image: propertyPaineiras,
-    name: "Viva Paineiras",
-    location: "Paulista, PE",
-    description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
+    image: propertyEstilo,
+    name: "Estilo Boa Viagem",
+    location: "Imbiribeira, Recife - PE",
+    description: "Apartamentos de 2 e 3 quartos com suíte e varanda, condomínio com lazer completo. Próximo ao metrô e Shopping Recife.",
     type: "CIDADE",
     category: "mcmv",
+    bedrooms: "2 e 3 quartos",
+    area: "46 a 58m²",
+  },
+  {
+    image: propertyConquista,
+    name: "Conquista Paulista",
+    location: "Maranguape I, Paulista - PE",
+    description: "Condomínio Minha Casa Minha Vida com estrutura completa, lazer e segurança para toda a família.",
+    type: "MCMV",
+    category: "mcmv",
+  },
+  {
+    image: propertySolare,
+    name: "Pátio Solare",
+    location: "Imbiribeira, Recife - PE",
+    description: "Apartamentos de 2 quartos com suíte e varanda. Lazer completo com piscina, espaço fitness e praça piquenique.",
+    type: "CIDADE",
+    category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "48 a 52m²",
+  },
+  {
+    image: propertyPrimavera,
+    name: "Viva Vida Primavera",
+    location: "Nova Tiúma, São Lourenço da Mata - PE",
+    description: "Empreendimento MCMV em bairro planejado com infraestrutura completa e fácil acesso ao centro do Recife.",
+    type: "MCMV",
+    category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "36m²",
+  },
+  {
+    image: propertyHori,
+    name: "Pátio Horí",
+    location: "Caxangá, Recife - PE",
+    description: "Condomínio moderno com lazer completo incluindo piscina, quadra e área verde. Localização privilegiada na Caxangá.",
+    type: "CIDADE",
+    category: "mcmv",
+  },
+  {
+    image: propertyCurado,
+    name: "Vila Novo Curado",
+    location: "Curado III, Jaboatão - PE",
+    description: "Apartamentos MCMV com entrada facilitada em até 60 mensais. Lazer completo e localização estratégica.",
+    type: "MCMV",
+    category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "45 a 52m²",
+  },
+  {
+    image: propertyCandeias,
+    name: "Candeias Life Club",
+    location: "Candeias, Jaboatão - PE",
+    description: "Apartamentos com benefícios MCMV, lazer completo com piscina adulto e infantil, coworking e espaço fitness.",
+    type: "CIDADE",
+    category: "mcmv",
+    bedrooms: "2 e 3 quartos",
+    area: "43 a 54m²",
+  },
+  {
+    image: propertyPalmeiras,
+    name: "Vila das Palmeiras",
+    location: "PE-22, Maranguape II, Paulista - PE",
+    description: "Apartamentos MCMV com 2 quartos e suíte, varanda e vaga de garagem. Infraestrutura completa e lazer.",
+    type: "MCMV",
+    category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "51 a 60m²",
   },
   {
     image: propertyCitta,
     name: "Città San Martin",
     location: "San Martin, Recife - PE",
     description: "Condomínio completo com lazer e segurança. Realize o sonho da casa própria com parcelas acessíveis.",
+    type: "CIDADE",
+    category: "mcmv",
+  },
+  {
+    image: propertyParaiso,
+    name: "Vila do Paraíso",
+    location: "Nossa Sra. do Ó, Paulista - PE",
+    description: "Apartamentos de 48m² com varanda, área de lazer completa pensada para o bem-estar e tranquilidade da família.",
     type: "MCMV",
     category: "mcmv",
+    bedrooms: "2 quartos",
+    area: "48m²",
   },
   {
     image: propertyJoa,
@@ -90,6 +186,14 @@ const properties: Property[] = [
     location: "Camaragibe, PE",
     description: "Localizado ao lado do Atacadão. Infraestrutura completa e fácil acesso ao transporte público.",
     type: "MCMV",
+    category: "mcmv",
+  },
+  {
+    image: propertyPaineiras,
+    name: "Viva Paineiras",
+    location: "Paulista, PE",
+    description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
+    type: "CIDADE",
     category: "mcmv",
   },
   {
@@ -105,10 +209,10 @@ const properties: Property[] = [
     name: "Pátio Nattu",
     location: "Caxangá, Recife - PE",
     description: "Próximo à UPA da Caxangá. Condomínio moderno com lazer completo para toda a família.",
-    type: "MCMV",
+    type: "CIDADE",
     category: "mcmv",
   },
-  // Litoral Properties (ordem: Costa dos Coqueiros, Orla, Habitá, Boulevard, Costa Azul, Costa do Mar, Naturê, Tropí, novos)
+  // Litoral Properties
   {
     image: propertyCosta,
     name: "Costa dos Coqueiros",
@@ -274,6 +378,22 @@ const MCMVCard = ({ property, whatsappLink }: { property: Property; whatsappLink
         <MapPin className="w-4 h-4" />
         <span className="font-sans text-sm">{property.location}</span>
       </div>
+      {(property.bedrooms || property.area) && (
+        <div className="flex flex-wrap items-center gap-3 text-muted-foreground mb-3">
+          {property.bedrooms && (
+            <div className="flex items-center gap-1.5">
+              <BedDouble className="w-4 h-4 text-primary" />
+              <span className="font-sans text-xs">{property.bedrooms}</span>
+            </div>
+          )}
+          {property.area && (
+            <div className="flex items-center gap-1.5">
+              <Maximize2 className="w-4 h-4 text-primary" />
+              <span className="font-sans text-xs">{property.area}</span>
+            </div>
+          )}
+        </div>
+      )}
       <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">
         {property.description}
       </p>
