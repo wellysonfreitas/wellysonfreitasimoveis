@@ -71,8 +71,8 @@ const properties: Property[] = [
     description: "Empreendimento moderno em uma das regiões mais valorizadas do Recife, com lazer completo e acabamento de alto padrão.",
     type: "CIDADE",
     category: "mcmv",
-    bedrooms: "2 e 3 quartos",
-    area: "55 a 75m²",
+    bedrooms: "3 quartos - até 3 suítes",
+    area: "70 a 86m²",
   },
   {
     image: propertyVale,
@@ -91,7 +91,7 @@ const properties: Property[] = [
     description: "Próximo ao Shopping Recife e Uninassau. Excelente localização com fácil acesso e infraestrutura completa.",
     type: "CIDADE",
     category: "mcmv",
-    bedrooms: "2 e 3 quartos",
+    bedrooms: "2 quartos",
     area: "46 a 58m²",
   },
   {
@@ -112,7 +112,7 @@ const properties: Property[] = [
     type: "MCMV",
     category: "mcmv",
     bedrooms: "2 quartos",
-    area: "41m²",
+    area: "37m²",
   },
   {
     image: propertySolare,
@@ -132,7 +132,7 @@ const properties: Property[] = [
     type: "MCMV",
     category: "mcmv",
     bedrooms: "2 quartos",
-    area: "36m²",
+    area: "37m²",
   },
   {
     image: propertyHori,
@@ -181,8 +181,8 @@ const properties: Property[] = [
     description: "Condomínio completo com lazer e segurança. Realize o sonho da casa própria com parcelas acessíveis.",
     type: "CIDADE",
     category: "mcmv",
-    bedrooms: "1 e 2 quartos",
-    area: "33 a 35m²",
+    bedrooms: "2 quartos",
+    area: "33 e 34m²",
   },
   {
     image: propertyParaiso,
@@ -202,7 +202,7 @@ const properties: Property[] = [
     type: "MCMV",
     category: "mcmv",
     bedrooms: "2 quartos",
-    area: "41m²",
+    area: "50m²",
   },
   {
     image: propertyPaineiras,
@@ -222,7 +222,7 @@ const properties: Property[] = [
     type: "MCMV",
     category: "mcmv",
     bedrooms: "2 quartos",
-    area: "41m²",
+    area: "37m²",
   },
   {
     image: propertyNattu,
