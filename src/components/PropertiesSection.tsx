@@ -182,7 +182,7 @@ const properties: Property[] = [
     name: "Città San Martin",
     location: "San Martin, Recife - PE",
     description: "Condomínio completo com lazer e segurança. Realize o sonho da casa própria com parcelas acessíveis.",
-    type: "CIDADE",
+    type: "MCMV",
     category: "mcmv",
     bedrooms: "2 quartos",
     area: "33 e 34m²",
