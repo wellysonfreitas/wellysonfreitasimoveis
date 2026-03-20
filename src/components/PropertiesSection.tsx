@@ -24,6 +24,9 @@ import propertyPrimavera from "@/assets/property-primavera.webp";
 import propertyCurado from "@/assets/property-curado.jpg";
 import propertyPalmeiras from "@/assets/property-palmeiras.jpg";
 import propertyParaiso from "@/assets/property-paraiso.jpg";
+import propertyBrisaDoMar from "@/assets/property-brisa-do-mar.png";
+import propertyVilaTulipas from "@/assets/property-vila-tulipas.jpg";
+import propertyBosqueCamaras from "@/assets/property-bosque-camaras.png";
 
 // Litoral Properties
 import propertyCosta from "@/assets/property-costa.webp";
