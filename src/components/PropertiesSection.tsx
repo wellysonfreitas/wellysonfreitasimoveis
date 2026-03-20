@@ -24,6 +24,9 @@ import propertyPrimavera from "@/assets/property-primavera.webp";
 import propertyCurado from "@/assets/property-curado.jpg";
 import propertyPalmeiras from "@/assets/property-palmeiras.jpg";
 import propertyParaiso from "@/assets/property-paraiso.jpg";
+import propertyBrisaDoMar from "@/assets/property-brisa-do-mar.png";
+import propertyVilaTulipas from "@/assets/property-vila-tulipas.jpg";
+import propertyBosqueCamaras from "@/assets/property-bosque-camaras.png";
 
 // Litoral Properties
 import propertyCosta from "@/assets/property-costa.webp";
@@ -179,7 +182,7 @@ const properties: Property[] = [
     name: "Città San Martin",
     location: "San Martin, Recife - PE",
     description: "Condomínio completo com lazer e segurança. Realize o sonho da casa própria com parcelas acessíveis.",
-    type: "CIDADE",
+    type: "MCMV",
     category: "mcmv",
     bedrooms: "2 quartos",
     area: "33 e 34m²",
@@ -233,6 +236,36 @@ const properties: Property[] = [
     category: "mcmv",
     bedrooms: "2 quartos",
     area: "45m²",
+  },
+  {
+    image: propertyBrisaDoMar,
+    name: "Brisa do Mar",
+    location: "Candeias, Jaboatão - PE",
+    description: "Apartamentos de 2 quartos com opção de suíte, em localização privilegiada em Candeias com lazer completo.",
+    type: "CIDADE",
+    category: "mcmv",
+    bedrooms: "2 quartos e 2 quartos com suíte",
+    area: "47 e 49m²",
+  },
+  {
+    image: propertyVilaTulipas,
+    name: "Vila das Tulipas",
+    location: "São Lourenço da Mata - PE",
+    description: "Apartamentos MCMV com opções de 2 quartos com varanda e suíte, em condomínio com lazer e segurança.",
+    type: "MCMV",
+    category: "mcmv",
+    bedrooms: "2 quartos sem suíte e varanda / 2 quartos com suíte e varanda",
+    area: "43 e 49m²",
+  },
+  {
+    image: propertyBosqueCamaras,
+    name: "Bosque dos Camarás",
+    location: "Camaragibe - PE (em frente ao Atacadão)",
+    description: "Condomínio MCMV com apartamentos de 2 quartos e suíte reversível, lazer completo e localização estratégica.",
+    type: "MCMV",
+    category: "mcmv",
+    bedrooms: "2 quartos suíte reversível",
+    area: "37,80 a 48,81m²",
   },
   // Litoral Properties
   {
