@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
-import { Home, Building2, Palmtree, FileCheck, Landmark, Heart } from "lucide-react";
+import { Building2, Palmtree, Sparkles, Landmark, LineChart, FileCheck } from "lucide-react";
 
 const services = [
   {
-    icon: Home,
-    title: "Primeiro Imóvel",
-    description: "Assessoria completa para quem está realizando o sonho da casa própria pela primeira vez.",
+    icon: Building2,
+    title: "Apartamentos e Studios",
+    description: "Curadoria de imóveis em Recife para morar bem — nas regiões mais valorizadas da cidade.",
   },
   {
-    icon: Heart,
-    title: "Minha Casa Minha Vida",
-    description: "Especialista em imóveis do programa habitacional com subsídios e condições especiais.",
-  },
-  {
-    icon: Landmark,
-    title: "Aprovação de Crédito",
-    description: "Suporte integral no processo de financiamento, da simulação à aprovação do crédito imobiliário.",
+    icon: Sparkles,
+    title: "Lançamentos Imobiliários",
+    description: "Acesso antecipado às melhores condições de tabela em novos empreendimentos.",
   },
   {
     icon: Palmtree,
-    title: "Investimento no Litoral",
-    description: "As melhores oportunidades para investidores em Porto de Galinhas, Muro Alto e região.",
+    title: "Imóveis no Litoral",
+    description: "Oportunidades selecionadas em Porto de Galinhas, Carneiros, Muro Alto e Tamandaré.",
   },
   {
-    icon: Building2,
-    title: "Consultoria Estratégica",
-    description: "Análise personalizada para encontrar o imóvel ideal de acordo com seu perfil e objetivos.",
+    icon: LineChart,
+    title: "Consultoria para Investidores",
+    description: "Análise de rentabilidade, valorização e potencial de locação por temporada.",
+  },
+  {
+    icon: Landmark,
+    title: "Análise de Financiamento",
+    description: "Simulações e orientação completa para escolher a melhor estrutura de crédito.",
   },
   {
     icon: FileCheck,
-    title: "Acompanhamento Completo",
-    description: "Do primeiro contato à entrega das chaves: documentação, vistoria, registro e pós-venda.",
+    title: "Acompanhamento Ponta a Ponta",
+    description: "Da visita ao imóvel à assinatura do contrato — com transparência em cada etapa.",
   },
 ];
 
@@ -38,7 +38,6 @@ const ServicesSection = () => {
   return (
     <section id="servicos" className="section-padding bg-secondary/30">
       <div className="container-narrow">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,18 +46,17 @@ const ServicesSection = () => {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="inline-block font-sans text-xs font-medium tracking-widest uppercase text-primary mb-4">
-            Serviços
+            Como trabalho
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight mb-4">
-            Como posso ajudar você
+            Consultoria especializada em cada etapa
           </h2>
           <p className="font-sans text-muted-foreground leading-relaxed">
-            Ofereço consultoria personalizada para cada perfil de cliente, 
-            com soluções sob medida para suas necessidades.
+            Do primeiro filtro de imóveis à assinatura do contrato — atendimento personalizado
+            para quem quer morar bem ou investir com segurança.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
