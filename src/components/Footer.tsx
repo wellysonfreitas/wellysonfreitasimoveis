@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, Instagram, MapPin, Mail } from "lucide-react";
+import { Phone, Instagram, MapPin, Mail, Linkedin, Facebook } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +8,6 @@ const Footer = () => {
     <footer className="bg-charcoal text-cream">
       <div className="container-narrow py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -17,18 +16,19 @@ const Footer = () => {
             className="lg:col-span-2"
           >
             <h3 className="font-serif text-2xl font-semibold mb-4">
-              WF<span className="text-primary">.</span>Imóveis
+              Wellyson Freitas<span className="text-primary">.</span> Imóveis
             </h3>
             <p className="font-sans text-cream/60 leading-relaxed max-w-sm mb-6">
-              Consultoria imobiliária especializada em Minha Casa Minha Vida 
-              e investimentos no litoral de Pernambuco. Atendimento personalizado 
-              do início à entrega das chaves.
+              Consultoria imobiliária especializada em imóveis para morar e investir
+              em Recife e no litoral de Pernambuco. Atendimento consultivo do primeiro
+              contato à assinatura do contrato.
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis."
+                href="https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de conversar sobre imóveis."
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
               >
                 <Phone className="w-5 h-5" />
@@ -37,12 +37,32 @@ const Footer = () => {
                 href="https://www.instagram.com/wellysonfreitasimoveis/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
+                href="https://www.linkedin.com/in/wellyson-freitas/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.facebook.com/welysom.freitas"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
                 href="mailto:wellysonfreitasimoveis@gmail.com"
+                aria-label="E-mail"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
               >
                 <Mail className="w-5 h-5" />
@@ -50,29 +70,33 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="font-serif text-lg font-medium mb-4">Navegação</h4>
+            <h4 className="font-serif text-lg font-medium mb-4">Institucional</h4>
             <ul className="space-y-3">
-              {["Sobre", "Serviços", "Imóveis", "Depoimentos"].map((link) => (
-                <li key={link}>
+              {[
+                { label: "Sobre", href: "#sobre" },
+                { label: "Serviços", href: "#servicos" },
+                { label: "Imóveis", href: "#imoveis" },
+                { label: "Financiamento", href: "#servicos" },
+                { label: "Contato", href: "#contato" },
+              ].map((link) => (
+                <li key={link.label}>
                   <a
-                    href={`#${link.toLowerCase()}`}
+                    href={link.href}
                     className="font-sans text-sm text-cream/60 hover:text-primary transition-colors duration-300"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -86,14 +110,13 @@ const Footer = () => {
                 <span className="font-sans text-sm text-cream/60">
                   Rua Antônio Lumack do Monte, 96<br />
                   Empresarial Center II – 12º andar<br />
-                  Boa Viagem, Recife - PE<br />
-                  <span className="text-cream/40 text-xs">Vinculado à Hub Nogueira</span>
+                  Boa Viagem, Recife - PE
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de saber mais sobre imóveis."
+                  href="https://wa.me/5581981509195?text=Olá, vim pelo site e gostaria de conversar sobre imóveis."
                   className="font-sans text-sm text-cream/60 hover:text-primary transition-colors"
                 >
                   (81) 98150-9195
@@ -103,7 +126,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
                   href="mailto:wellysonfreitasimoveis@gmail.com"
-                  className="font-sans text-sm text-cream/60 hover:text-primary transition-colors"
+                  className="font-sans text-sm text-cream/60 hover:text-primary transition-colors break-all"
                 >
                   wellysonfreitasimoveis@gmail.com
                 </a>
@@ -112,14 +135,13 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-cream/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-sans text-sm text-cream/40">
-              © {currentYear} WF Imóveis – Wellyson Freitas. Todos os direitos reservados.
+              © {currentYear} Wellyson Freitas Imóveis. Todos os direitos reservados.
             </p>
             <p className="font-sans text-sm text-cream/40">
-              CRECI-PE: 16754-J | E-2009012755
+              CRECI 23.117 · Política de Privacidade
             </p>
           </div>
         </div>
