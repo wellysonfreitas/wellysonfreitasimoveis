@@ -309,7 +309,6 @@ const properties: Property[] = [
     area: "43 a 54m²",
     price: "A partir de R$ 270.000",
   },
-  {
   // Litoral
   {
     image: propertyCosta,
