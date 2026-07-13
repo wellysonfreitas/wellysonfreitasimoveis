@@ -237,7 +237,7 @@ const properties: Property[] = [
     price: "A partir de R$ 352.000",
   },
   {
-    image: propertyMillennium,
+    image: propertyLuarParque,
     name: "Luar do Parque",
     location: "Recife - PE",
     description: "Empreendimento com localização estratégica e proposta contemporânea de morar. Consulte disponibilidade e valores.",
@@ -310,13 +310,6 @@ const properties: Property[] = [
     price: "A partir de R$ 270.000",
   },
   {
-    image: propertyLuarParque,
-    name: "Placeholder — remove",
-    location: "",
-    description: "",
-    type: "CIDADE",
-    category: "cidade",
-  },
   // Litoral
   {
     image: propertyCosta,
