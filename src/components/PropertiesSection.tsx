@@ -498,6 +498,12 @@ const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLi
           )}
         </div>
       )}
+      {property.price && (
+        <div className="flex items-center gap-1.5 text-primary font-sans text-sm font-semibold mb-3">
+          <Tag className="w-4 h-4" />
+          <span>{property.price}</span>
+        </div>
+      )}
       <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">{property.description}</p>
       <Button
         asChild
@@ -553,6 +559,12 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
               </div>
             )}
           </div>
+          {property.price && (
+            <div className="flex items-center gap-1.5 text-primary font-sans text-sm font-semibold mb-3">
+              <Tag className="w-4 h-4" />
+              <span>{property.price}</span>
+            </div>
+          )}
           <p className="font-sans text-xs text-white/80 leading-relaxed mb-3">{property.description}</p>
 
           {property.fullDescription && (
