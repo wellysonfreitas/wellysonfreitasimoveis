@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown, ChevronRight } from "lucide-react";
+import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown, ChevronRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -15,6 +15,20 @@ import propertyEstilo from "@/assets/property-estilo.webp";
 import propertySolare from "@/assets/property-solare.png";
 import propertyHori from "@/assets/property-hori.png";
 import propertyCandeias from "@/assets/property-candeias.jpg";
+import propertyValeGuararapes from "@/assets/property-vale-guararapes.jpg";
+import propertyPatioCamino from "@/assets/property-patio-camino.jpg";
+import propertyElevare from "@/assets/property-elevare.jpg";
+import propertyMillennium from "@/assets/property-millennium.jpg";
+import propertyVilaGiovanna from "@/assets/property-vila-giovanna.jpg";
+import propertyParcCollege from "@/assets/property-parc-college.jpg";
+import propertyPalacioVideiras from "@/assets/property-palacio-videiras.jpg";
+import propertyIsaMelo from "@/assets/property-isa-melo.jpg";
+import propertyIlhaRetiroBoulevard from "@/assets/property-ilha-retiro-boulevard.jpg";
+import propertyAurumHall from "@/assets/property-aurum-hall.jpg";
+import propertyMorata from "@/assets/property-morata.jpg";
+import propertyBeiraMarPiedade from "@/assets/property-beira-mar-piedade.jpg";
+import propertyLuarParque from "@/assets/property-luar-parque.jpg";
+import propertyLikeClub from "@/assets/property-like-club.jpg";
 
 // Litoral Properties
 import propertyCosta from "@/assets/property-costa.webp";
@@ -41,6 +55,7 @@ interface Property {
   category: "cidade" | "litoral";
   bedrooms?: string;
   area?: string;
+  price?: string;
 }
 
 const properties: Property[] = [
