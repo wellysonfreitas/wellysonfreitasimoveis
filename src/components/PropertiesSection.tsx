@@ -4,8 +4,15 @@ import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown, ChevronRight, Ta
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-// Cidade Properties
+// Cidade Properties (single-image fallbacks)
 import propertyWave from "@/assets/property-wave.webp";
 import propertyRaizes from "@/assets/property-raizes.jpeg";
 import propertyPaineiras from "@/assets/property-paineiras.jpeg";
@@ -15,18 +22,6 @@ import propertyEstilo from "@/assets/property-estilo.webp";
 import propertySolare from "@/assets/property-solare.png";
 import propertyHori from "@/assets/property-hori.png";
 import propertyCandeias from "@/assets/property-candeias.jpg";
-import propertyValeGuararapes from "@/assets/property-vale-guararapes.jpg";
-import propertyPatioCamino from "@/assets/property-patio-camino.jpg";
-import propertyElevare from "@/assets/property-elevare.jpg";
-import propertyMillennium from "@/assets/property-millennium.jpg";
-import propertyVilaGiovanna from "@/assets/property-vila-giovanna.jpg";
-import propertyParcCollege from "@/assets/property-parc-college.jpg";
-import propertyPalacioVideiras from "@/assets/property-palacio-videiras.jpg";
-import propertyIsaMelo from "@/assets/property-isa-melo.jpg";
-import propertyIlhaRetiroBoulevard from "@/assets/property-ilha-retiro-boulevard.jpg";
-import propertyAurumHall from "@/assets/property-aurum-hall.jpg";
-import propertyMorata from "@/assets/property-morata.jpg";
-import propertyBeiraMarPiedade from "@/assets/property-beira-mar-piedade.jpg";
 import propertyLuarParque from "@/assets/property-luar-parque.jpg";
 import propertyLikeClub from "@/assets/property-like-club.jpg";
 
@@ -45,8 +40,22 @@ import propertyMauna from "@/assets/property-mauna.jpg";
 import propertyNau from "@/assets/property-nau.jpg";
 import propertyMarano from "@/assets/property-marano.png";
 
+// Gallery images (multi-image carousels)
+const galleryModules = import.meta.glob(
+  "@/assets/properties/**/*.{jpg,jpeg,png,webp}",
+  { eager: true, import: "default" }
+) as Record<string, string>;
+
+const gallery = (slug: string): string[] => {
+  const entries = Object.entries(galleryModules)
+    .filter(([path]) => path.includes(`/properties/${slug}/`))
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, url]) => url);
+  return entries;
+};
+
 interface Property {
-  image: string;
+  images: string[];
   name: string;
   location: string;
   description: string;
@@ -61,7 +70,7 @@ interface Property {
 const properties: Property[] = [
   // Cidade — Lançamentos e alto valor
   {
-    image: propertyAurumHall,
+    images: gallery("aurum-hall"),
     name: "Aurum Hall",
     location: "Casa Forte, Recife - PE",
     description: "Lançamento premium ao lado da Praça de Casa Forte. Apartamentos com 3 suítes e opção duplex, rooftop com piscina e wellness studio.",
@@ -72,7 +81,7 @@ const properties: Property[] = [
     price: "A partir de R$ 1.425.000",
   },
   {
-    image: propertyBeiraMarPiedade,
+    images: gallery("beira-mar-piedade"),
     name: "Beira Mar Piedade Prince",
     location: "Piedade, Jaboatão - PE",
     description: "Beira-mar de Piedade com quase 3.000m² de lazer. 3 quartos com até 3 suítes, projeto assinado por Pontual Arquitetos.",
@@ -83,7 +92,7 @@ const properties: Property[] = [
     price: "A partir de R$ 1.394.000",
   },
   {
-    image: propertySplendore,
+    images: [propertySplendore],
     name: "Splendore Boa Viagem",
     location: "Boa Viagem, Recife - PE",
     description: "Empreendimento moderno em uma das regiões mais valorizadas do Recife, com lazer completo e acabamento de alto padrão.",
@@ -94,7 +103,7 @@ const properties: Property[] = [
     price: "A partir de R$ 914.000",
   },
   {
-    image: propertyPalacioVideiras,
+    images: gallery("palacio-videiras"),
     name: "Palácio das Videiras",
     location: "Madalena, Recife - PE",
     description: "Lançamento premium ao lado da Praça Eça de Queiroz. Unidades totalmente nascentes, varanda gourmet, arquitetura Pontual Arquitetos.",
@@ -105,7 +114,7 @@ const properties: Property[] = [
     price: "A partir de R$ 801.000",
   },
   {
-    image: propertyRaizes,
+    images: [propertyRaizes],
     name: "Raízes",
     location: "Ilha do Leite, Recife - PE",
     description: "Ao lado do Colégio Salesiano. Localização privilegiada no centro do Recife com fácil acesso e toda infraestrutura urbana.",
@@ -116,7 +125,7 @@ const properties: Property[] = [
     price: "A partir de R$ 700.000",
   },
   {
-    image: propertyParcCollege,
+    images: gallery("parc-college"),
     name: "Parc College",
     location: "Boa Viagem, Recife - PE",
     description: "Alto padrão na Alameda das Hortências, entre os melhores colégios da região. Obras avançadas com rooftop premium e beach tennis.",
@@ -127,7 +136,7 @@ const properties: Property[] = [
     price: "A partir de R$ 639.000",
   },
   {
-    image: propertyMillennium,
+    images: gallery("millennium"),
     name: "Millennium Urban Home",
     location: "Boa Viagem, Recife - PE",
     description: "Pré-lançamento em Boa Viagem com studios e 2 quartos, rooftop com piscina de borda infinita e vista para o mar.",
@@ -138,7 +147,7 @@ const properties: Property[] = [
     price: "Studio a partir de R$ 316.000 · 2 quartos a partir de R$ 579.000",
   },
   {
-    image: propertyElevare,
+    images: gallery("elevare"),
     name: "Elevare Smart Home",
     location: "Setúbal, Recife - PE",
     description: "Lançamento tecnológico com fechadura eletrônica, acesso por biometria facial, rooftop 180° e áreas comuns decoradas.",
@@ -149,7 +158,7 @@ const properties: Property[] = [
     price: "Studio R$ 309.000 · 1Q R$ 359.000 · 2Q R$ 545.000",
   },
   {
-    image: propertyIsaMelo,
+    images: gallery("isa-melo"),
     name: "Isa Melo",
     location: "Ilha do Retiro, Recife - PE",
     description: "Lançamento da Renel na Ilha do Retiro. 3 quartos, 2 suítes (1 reversível), rooftop, coworking e lazer completo.",
@@ -160,7 +169,7 @@ const properties: Property[] = [
     price: "A partir de R$ 511.625",
   },
   {
-    image: propertyVale,
+    images: [propertyVale],
     name: "Vale Caxangá Golf Club",
     location: "Várzea, Recife - PE",
     description: "Às margens da Av. Caxangá, em frente ao Golf Club. Localização nobre com área verde e qualidade de vida.",
@@ -171,7 +180,7 @@ const properties: Property[] = [
     price: "A partir de R$ 487.900",
   },
   {
-    image: propertyEstilo,
+    images: [propertyEstilo],
     name: "Estilo Boa Viagem",
     location: "Imbiribeira, Recife - PE",
     description: "Apartamentos de 2 e 3 quartos com suíte e varanda, condomínio com lazer completo. Próximo ao metrô e Shopping Recife.",
@@ -182,7 +191,7 @@ const properties: Property[] = [
     price: "A partir de R$ 485.000",
   },
   {
-    image: propertyWave,
+    images: [propertyWave],
     name: "Wave Boa Viagem",
     location: "Imbiribeira, Recife - PE",
     description: "Próximo ao Shopping Recife e Uninassau. Excelente localização com fácil acesso e infraestrutura completa.",
@@ -193,7 +202,7 @@ const properties: Property[] = [
     price: "A partir de R$ 410.000",
   },
   {
-    image: propertyIlhaRetiroBoulevard,
+    images: gallery("ilha-retiro-boulevard"),
     name: "Ilha do Retiro Boulevard",
     location: "Ilha do Retiro, Recife - PE",
     description: "Verdadeiro resort urbano com mais de 24 itens de lazer e centro comercial integrado. 3 quartos com suíte.",
@@ -204,7 +213,7 @@ const properties: Property[] = [
     price: "A partir de R$ 365.000",
   },
   {
-    image: propertyPatioCamino,
+    images: gallery("patio-camino"),
     name: "Pátio Camino",
     location: "Iputinga, Recife - PE",
     description: "Lançamento na Rua São Matheus. 2 quartos com suíte e varanda, bloco de lazer completo e prédio esbelto de arquitetos premiados.",
@@ -215,7 +224,7 @@ const properties: Property[] = [
     price: "Preço médio de R$ 360.000",
   },
   {
-    image: propertySolare,
+    images: [propertySolare],
     name: "Pátio Solare",
     location: "Imbiribeira, Recife - PE",
     description: "Apartamentos de 2 quartos com suíte e varanda. Lazer completo com piscina, espaço fitness e praça piquenique.",
@@ -226,7 +235,7 @@ const properties: Property[] = [
     price: "A partir de R$ 359.000",
   },
   {
-    image: propertyValeGuararapes,
+    images: gallery("vale-guararapes"),
     name: "Vale dos Guararapes",
     location: "Piedade, Jaboatão - PE",
     description: "Lançamento na Av. Barreto de Menezes. 2 quartos com varanda gourmet, mais de 40 itens de lazer e 100% das unidades com vaga.",
@@ -237,7 +246,7 @@ const properties: Property[] = [
     price: "A partir de R$ 352.000",
   },
   {
-    image: propertyLuarParque,
+    images: [propertyLuarParque],
     name: "Luar do Parque",
     location: "Recife - PE",
     description: "Empreendimento com localização estratégica e proposta contemporânea de morar. Consulte disponibilidade e valores.",
@@ -246,7 +255,7 @@ const properties: Property[] = [
     price: "Sob consulta",
   },
   {
-    image: propertyLikeClub,
+    images: [propertyLikeClub],
     name: "Like Club Boa Vista",
     location: "Boa Vista, Recife - PE",
     description: "Empreendimento com pegada club, lazer completo e localização central em Boa Vista. Consulte disponibilidade.",
@@ -255,7 +264,7 @@ const properties: Property[] = [
     price: "Sob consulta",
   },
   {
-    image: propertyHori,
+    images: [propertyHori],
     name: "Pátio Horí",
     location: "Caxangá, Recife - PE",
     description: "Condomínio moderno com lazer completo incluindo piscina, quadra e área verde. Localização privilegiada na Caxangá.",
@@ -266,7 +275,7 @@ const properties: Property[] = [
     price: "A partir de R$ 299.000",
   },
   {
-    image: propertyMorata,
+    images: gallery("morata"),
     name: "Morata Living",
     location: "Imbiribeira, Recife - PE",
     description: "Em construção na Rua Prof. Rosilda Costa. 2 quartos com suíte, opções com garden privativo e lazer completo com beach tennis.",
@@ -277,7 +286,7 @@ const properties: Property[] = [
     price: "A partir de R$ 299.900",
   },
   {
-    image: propertyVilaGiovanna,
+    images: gallery("vila-giovanna"),
     name: "Vila Giovanna",
     location: "Piedade, Jaboatão - PE",
     description: "Lançamento em Piedade próximo ao Shopping Guararapes. Torre única com 4 apartamentos por andar, rooftop e academia.",
@@ -288,7 +297,7 @@ const properties: Property[] = [
     price: "A partir de R$ 302.900",
   },
   {
-    image: propertyPaineiras,
+    images: [propertyPaineiras],
     name: "Viva Paineiras",
     location: "Jardim Paulista, Paulista - PE",
     description: "Próximo ao Terminal Pelópidas. Área de lazer completa e excelente custo-benefício.",
@@ -299,7 +308,7 @@ const properties: Property[] = [
     price: "A partir de R$ 275.000",
   },
   {
-    image: propertyCandeias,
+    images: [propertyCandeias],
     name: "Candeias Life Club",
     location: "Candeias, Jaboatão - PE",
     description: "Apartamentos com lazer completo — piscina adulto e infantil, coworking e espaço fitness.",
@@ -311,7 +320,7 @@ const properties: Property[] = [
   },
   // Litoral
   {
-    image: propertyCosta,
+    images: [propertyCosta],
     name: "Costa dos Coqueiros",
     location: "Praia dos Carneiros, PE",
     description: "Empreendimento em região de crescimento turístico e forte valorização, ideal para renda com locações e uso próprio.",
@@ -322,7 +331,7 @@ const properties: Property[] = [
     area: "24.96 a 79.12m²",
   },
   {
-    image: propertyOrla,
+    images: [propertyOrla],
     name: "Orla Praia dos Carneiros",
     location: "Praia dos Carneiros, PE",
     description: "Empreendimento à beira-mar com grande potencial de valorização e renda.",
@@ -333,7 +342,7 @@ const properties: Property[] = [
     area: "59.67 a 218.05m²",
   },
   {
-    image: propertyHabita,
+    images: [propertyHabita],
     name: "Habitá Praia do Cupe",
     location: "Praia do Cupe, PE",
     description: "No polo turístico de Porto de Galinhas, ideal para renda recorrente com locações.",
@@ -344,7 +353,7 @@ const properties: Property[] = [
     area: "59.67 a 650.92m²",
   },
   {
-    image: propertyBoulevard,
+    images: [propertyBoulevard],
     name: "Boulevard Praia dos Carneiros",
     location: "Praia dos Carneiros, PE",
     description: "Sofisticação em Carneiros com alto potencial de rentabilidade em locações de temporada.",
@@ -355,7 +364,7 @@ const properties: Property[] = [
     area: "25.20 a 99.61m²",
   },
   {
-    image: propertyCostaAzul,
+    images: [propertyCostaAzul],
     name: "Costa Azul",
     location: "Praia dos Carneiros, PE",
     description: "Localização estratégica no litoral com foco em valorização e renda.",
@@ -366,7 +375,7 @@ const properties: Property[] = [
     area: "24.89 a 87.23m²",
   },
   {
-    image: propertyCostaMar,
+    images: [propertyCostaMar],
     name: "Costa do Mar",
     location: "Praia dos Carneiros, PE",
     description: "Projeto moderno no litoral com foco em valorização e renda com locações.",
@@ -377,7 +386,7 @@ const properties: Property[] = [
     area: "24.89 a 87.23m²",
   },
   {
-    image: propertyNature,
+    images: [propertyNature],
     name: "Naturê Eco Residência",
     location: "Muro Alto, PE",
     description: "Qualidade de vida, natureza e potencial de valorização no litoral.",
@@ -388,7 +397,7 @@ const properties: Property[] = [
     area: "30.27 a 149.46m²",
   },
   {
-    image: propertyTropi,
+    images: [propertyTropi],
     name: "Tropí Eco Residência",
     location: "Praia de Muro Alto, PE",
     description: "Conceito sustentável e integração com a natureza em destino turístico crescente.",
@@ -399,7 +408,7 @@ const properties: Property[] = [
     area: "56.87 a 149.46m²",
   },
   {
-    image: propertyGranResort,
+    images: [propertyGranResort],
     name: "Gran Resort Maragogi",
     location: "Praia de Maragogi, AL",
     description: "Resort de alto padrão em Maragogi, com grande potencial de valorização e renda com locação por temporada.",
@@ -410,7 +419,7 @@ const properties: Property[] = [
     area: "22.50 a 84m²",
   },
   {
-    image: propertyKoa,
+    images: [propertyKoa],
     name: "KOA",
     location: "Porto de Galinhas, PE",
     description: "Projeto moderno com perfil de investimento e alta demanda por locações no litoral.",
@@ -421,7 +430,7 @@ const properties: Property[] = [
     area: "24 a 65m²",
   },
   {
-    image: propertyMarano,
+    images: [propertyMarano],
     name: "Marano Beira-Mar",
     location: "Porto de Galinhas, PE",
     description: "Beira-mar em Porto de Galinhas com rooftop e lazer completo — ideal para rentabilidade com locações.",
@@ -432,7 +441,7 @@ const properties: Property[] = [
     area: "20 a 70m²",
   },
   {
-    image: propertyMauna,
+    images: [propertyMauna],
     name: "Mauna",
     location: "Praia de Tamandaré, PE",
     description: "Empreendimento moderno com forte potencial de valorização e renda com locação.",
@@ -443,7 +452,7 @@ const properties: Property[] = [
     area: "35 a 70m²",
   },
   {
-    image: propertyNau,
+    images: [propertyNau],
     name: "Nau Home Resort",
     location: "Praia dos Carneiros, PE",
     description: "Resort residencial com lazer completo e alto potencial de retorno em locações.",
@@ -457,6 +466,57 @@ const properties: Property[] = [
 
 const ITEMS_PER_PAGE = 6;
 
+const PropertyGallery = ({
+  images,
+  name,
+  badge,
+  aspect = "aspect-[4/3]",
+  overlay,
+}: {
+  images: string[];
+  name: string;
+  badge?: React.ReactNode;
+  aspect?: string;
+  overlay?: React.ReactNode;
+}) => {
+  const hasMultiple = images.length > 1;
+  return (
+    <div className={`relative ${aspect} overflow-hidden group/gal`}>
+      <Carousel opts={{ loop: true }} className="w-full h-full">
+        <CarouselContent className="h-full ml-0">
+          {images.map((src, i) => (
+            <CarouselItem key={i} className="pl-0 h-full">
+              <img
+                src={src}
+                alt={`${name} — imagem ${i + 1}`}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {hasMultiple && (
+          <>
+            <CarouselPrevious
+              onClick={(e) => e.stopPropagation()}
+              className="left-3 h-8 w-8 opacity-0 group-hover/gal:opacity-100 transition-opacity bg-background/80 hover:bg-background border-none"
+            />
+            <CarouselNext
+              onClick={(e) => e.stopPropagation()}
+              className="right-3 h-8 w-8 opacity-0 group-hover/gal:opacity-100 transition-opacity bg-background/80 hover:bg-background border-none"
+            />
+            <div className="absolute bottom-3 right-3 z-10 px-2 py-0.5 rounded-full bg-charcoal/70 text-white text-[10px] font-sans tracking-wide">
+              {images.length} fotos
+            </div>
+          </>
+        )}
+      </Carousel>
+      {overlay}
+      {badge}
+    </div>
+  );
+};
+
 const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -465,17 +525,15 @@ const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLi
     transition={{ duration: 0.5 }}
     className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
   >
-    <div className="relative aspect-[4/3] overflow-hidden">
-      <img
-        src={property.image}
-        alt={property.name}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <span className="absolute top-4 left-4 px-3 py-1 text-xs font-sans font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full">
-        {property.type}
-      </span>
-    </div>
+    <PropertyGallery
+      images={property.images}
+      name={property.name}
+      badge={
+        <span className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-sans font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full">
+          {property.type}
+        </span>
+      }
+    />
     <div className="p-6">
       <h3 className="font-serif text-xl font-medium text-foreground mb-2">{property.name}</h3>
       <div className="flex items-center gap-1.5 text-muted-foreground mb-3">
@@ -530,16 +588,16 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
       transition={{ duration: 0.5 }}
       className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
     >
-      <div className="relative aspect-[3/4] overflow-hidden">
-        <img
-          src={property.image}
-          alt={property.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-transparent" />
+      <PropertyGallery
+        images={property.images}
+        name={property.name}
+        aspect="aspect-[3/4]"
+        overlay={<div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-transparent pointer-events-none" />}
+      />
 
-        <div className="absolute inset-0 flex flex-col justify-end p-6">
-          <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+      <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none">
+        <div className="pointer-events-auto">
+          <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2 block">
             {property.location}
           </span>
           <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-3 leading-tight">
