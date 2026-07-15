@@ -498,11 +498,13 @@ const PropertyGallery = ({
         {hasMultiple && (
           <>
             <CarouselPrevious
-              onClick={(e) => e.stopPropagation()}
+              type="button"
+              onPointerDown={(e) => e.stopPropagation()}
               className="left-3 h-8 w-8 opacity-0 group-hover/gal:opacity-100 transition-opacity bg-background/80 hover:bg-background border-none"
             />
             <CarouselNext
-              onClick={(e) => e.stopPropagation()}
+              type="button"
+              onPointerDown={(e) => e.stopPropagation()}
               className="right-3 h-8 w-8 opacity-0 group-hover/gal:opacity-100 transition-opacity bg-background/80 hover:bg-background border-none"
             />
             <div className="absolute bottom-3 right-3 z-10 px-2 py-0.5 rounded-full bg-charcoal/70 text-white text-[10px] font-sans tracking-wide">
