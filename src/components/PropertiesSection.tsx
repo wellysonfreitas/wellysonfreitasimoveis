@@ -22,8 +22,6 @@ import propertyEstilo from "@/assets/property-estilo.webp";
 import propertySolare from "@/assets/property-solare.png";
 import propertyHori from "@/assets/property-hori.png";
 import propertyCandeias from "@/assets/property-candeias.jpg";
-import propertyLuarParque from "@/assets/property-luar-parque.jpg";
-import propertyLikeClub from "@/assets/property-like-club.jpg";
 
 // Litoral Properties
 import propertyCosta from "@/assets/property-costa.webp";
@@ -244,24 +242,6 @@ const properties: Property[] = [
     bedrooms: "2 quartos",
     area: "47 a 59m²",
     price: "A partir de R$ 352.000",
-  },
-  {
-    images: [propertyLuarParque],
-    name: "Luar do Parque",
-    location: "Recife - PE",
-    description: "Empreendimento com localização estratégica e proposta contemporânea de morar. Consulte disponibilidade e valores.",
-    type: "CIDADE",
-    category: "cidade",
-    price: "Sob consulta",
-  },
-  {
-    images: [propertyLikeClub],
-    name: "Like Club Boa Vista",
-    location: "Boa Vista, Recife - PE",
-    description: "Empreendimento com pegada club, lazer completo e localização central em Boa Vista. Consulte disponibilidade.",
-    type: "CIDADE",
-    category: "cidade",
-    price: "Sob consulta",
   },
   {
     images: [propertyHori],
