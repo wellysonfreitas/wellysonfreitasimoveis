@@ -22,8 +22,6 @@ import propertyEstilo from "@/assets/property-estilo.webp";
 import propertySolare from "@/assets/property-solare.png";
 import propertyHori from "@/assets/property-hori.png";
 import propertyCandeias from "@/assets/property-candeias.jpg";
-import propertyLuarParque from "@/assets/property-luar-parque.jpg";
-import propertyLikeClub from "@/assets/property-like-club.jpg";
 
 // Litoral Properties
 import propertyCosta from "@/assets/property-costa.webp";
