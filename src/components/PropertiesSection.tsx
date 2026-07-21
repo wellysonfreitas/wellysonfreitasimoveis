@@ -568,71 +568,78 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+      className="group flex flex-col rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 bg-charcoal"
     >
+      {/* Top status banner */}
+      <div className="bg-forest text-white text-center py-2.5 font-sans text-xs font-semibold tracking-[0.2em] uppercase">
+        Em Obra
+      </div>
+
+      {/* Clean image, no dark overlay */}
       <PropertyGallery
         images={property.images}
         name={property.name}
-        aspect="aspect-[3/4]"
-        overlay={<div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/50 to-transparent pointer-events-none" />}
+        aspect="aspect-[4/3]"
       />
 
-      <div className="absolute inset-0 flex flex-col justify-end p-6 pointer-events-none">
-        <div className="pointer-events-auto">
-          <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2 block">
-            {property.location}
-          </span>
-          <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-3 leading-tight">
-            {property.name}
-          </h3>
-          <div className="flex flex-wrap items-center gap-3 text-white/90 mb-3">
-            {property.bedrooms && (
-              <div className="flex items-center gap-1.5">
-                <BedDouble className="w-4 h-4 text-primary" />
-                <span className="font-sans text-xs">{property.bedrooms}</span>
-              </div>
-            )}
-            {property.area && (
-              <div className="flex items-center gap-1.5">
-                <Maximize2 className="w-4 h-4 text-primary" />
-                <span className="font-sans text-xs">{property.area}</span>
-              </div>
-            )}
-          </div>
-          {property.price && (
-            <div className="flex items-center gap-1.5 text-primary font-sans text-sm font-semibold mb-3">
-              <Tag className="w-4 h-4" />
-              <span>{property.price}</span>
+      {/* Info panel below image */}
+      <div className="p-6 flex flex-col flex-1">
+        <span className="font-sans text-xs font-semibold tracking-widest uppercase text-primary mb-2 block">
+          {property.location}
+        </span>
+        <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-4 leading-tight">
+          {property.name}
+        </h3>
+
+        <div className="flex flex-wrap items-center gap-4 text-white/90 mb-4">
+          {property.bedrooms && (
+            <div className="flex items-center gap-1.5">
+              <BedDouble className="w-4 h-4 text-primary" />
+              <span className="font-sans text-xs">{property.bedrooms}</span>
             </div>
           )}
-          <p className="font-sans text-xs text-white/80 leading-relaxed mb-3">{property.description}</p>
-
-          {property.fullDescription && (
-            <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-              <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-3">
-                <span className="font-sans text-xs font-medium">
-                  {isOpen ? "Ver menos" : "Ver mais detalhes"}
-                </span>
-                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-              </CollapsibleTrigger>
-              <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
-                <p className="font-sans text-xs text-white/70 leading-relaxed mb-3">
-                  {property.fullDescription}
-                </p>
-              </CollapsibleContent>
-            </Collapsible>
+          {property.area && (
+            <div className="flex items-center gap-1.5">
+              <Maximize2 className="w-4 h-4 text-primary" />
+              <span className="font-sans text-xs">{property.area}</span>
+            </div>
           )}
-
-          <Button
-            asChild
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-medium gap-2 group/btn"
-          >
-            <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
-              Quero saber mais
-              <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-            </a>
-          </Button>
         </div>
+
+        {property.price && (
+          <div className="flex items-center gap-1.5 text-primary font-sans text-sm font-semibold mb-4">
+            <Tag className="w-4 h-4" />
+            <span>{property.price}</span>
+          </div>
+        )}
+
+        <p className="font-sans text-xs text-white/75 leading-relaxed mb-4">{property.description}</p>
+
+        {property.fullDescription && (
+          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+            <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-4">
+              <span className="font-sans text-xs font-medium">
+                {isOpen ? "Ver menos" : "Ver mais detalhes"}
+              </span>
+              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+              <p className="font-sans text-xs text-white/65 leading-relaxed mb-4">
+                {property.fullDescription}
+              </p>
+            </CollapsibleContent>
+          </Collapsible>
+        )}
+
+        <Button
+          asChild
+          className="w-full mt-auto bg-primary hover:bg-primary/90 text-primary-foreground font-sans text-sm font-medium gap-2 group/btn"
+        >
+          <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
+            Quero saber mais
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </a>
+        </Button>
       </div>
     </motion.div>
   );
