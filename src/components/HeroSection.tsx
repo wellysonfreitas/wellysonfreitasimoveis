@@ -71,7 +71,7 @@ const HeroSection = () => {
               asChild
               variant="outline"
               size="lg"
-              className="border-2 border-cream/40 text-cream hover:bg-cream hover:text-charcoal font-sans text-base font-medium px-8 py-6 gap-2 group backdrop-blur-sm"
+              className="bg-transparent border-2 border-cream/60 text-cream hover:bg-cream hover:text-charcoal hover:border-cream font-sans text-base font-medium px-8 py-6 gap-2 group backdrop-blur-sm transition-all duration-300"
             >
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5" />

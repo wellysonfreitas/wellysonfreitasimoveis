@@ -462,7 +462,7 @@ const PropertyGallery = ({
   const hasMultiple = images.length > 1;
   return (
     <div className={`relative ${aspect} overflow-hidden group/gal`}>
-      <Carousel opts={{ loop: true }} className="w-full h-full">
+      <Carousel opts={{ loop: true }} className="w-full h-full [&>div:first-child]:h-full">
         <CarouselContent className="h-full ml-0">
           {images.map((src, i) => (
             <CarouselItem key={i} className="pl-0 h-full">

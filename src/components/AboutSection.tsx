@@ -25,7 +25,7 @@ const AboutSection = () => {
               <img
                 src={consultantPhoto}
                 alt="Wellyson Freitas - Consultor Imobiliário em Recife"
-                className="w-full h-full object-cover rounded-lg shadow-2xl"
+                className="w-full h-full object-cover object-[center_25%] rounded-lg shadow-2xl"
               />
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" />
             </div>
