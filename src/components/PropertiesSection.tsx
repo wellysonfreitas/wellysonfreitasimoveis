@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown, ChevronRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   Carousel,
   CarouselContent,
@@ -575,6 +576,8 @@ const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLi
 
 
 const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -627,6 +630,22 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
         )}
 
         <p className="font-sans text-xs text-white/75 leading-relaxed mb-4">{property.description}</p>
+
+        {property.fullDescription && (
+          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+            <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-4">
+              <span className="font-sans text-xs font-medium">
+                {isOpen ? "Ver menos" : "Ver mais detalhes"}
+              </span>
+              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+              <p className="font-sans text-xs text-white/65 leading-relaxed mb-4">
+                {property.fullDescription}
+              </p>
+            </CollapsibleContent>
+          </Collapsible>
+        )}
 
         <Button
           asChild
