@@ -127,7 +127,7 @@ const properties: Property[] = [
     name: "Praça dos Araçás",
     location: "Cordeiro, Recife - PE",
     description: "Breve lançamento a 140m do Mercado Soberano. Torre única com 27 pavimentos, varanda gourmet, fechadura digital e vagas para carro elétrico.",
-    fullDescription: "Localizado na Rua Desembargador Manoel de Sá Pereira, nº 101, em pleno Cordeiro — bairro residencial consolidado, com fácil acesso à Av. Caxangá e à BR-101, cercado por escolas, supermercados, farmácias e o Parque de Exposições. São 1 torre, 27 pavimentos tipo e 2 elevadores, com plantas de 52,68m² (2 quartos, 1 suíte), 66,53m² (3 quartos, 1 suíte) e 83,25m² (3 quartos, 2 suítes), todas com varanda gourmet, sala de estar/jantar, cozinha e área de serviço. Diferenciais: fechadura digital, preparação para aquecedor de passagem e 2 vagas de uso coletivo para carro elétrico. Lazer completo com piscina adulto e deck, piscina infantil, hidro, academia, coworking, salão de festas com bar e copa, terraço coberto, playground e brinquedoteca. Garagem com 1 ou 2 vagas. Lançamento previsto para agosto de 2026.",
+    fullDescription: "Rua Desembargador Manoel de Sá Pereira, nº 101 — Cordeiro. 1 torre, 27 pavimentos tipo e 2 elevadores. Plantas de 52,68m² (2 quartos, 1 suíte), 66,53m² (3 quartos, 1 suíte) e 83,25m² (3 quartos, 2 suítes), todas com varanda gourmet. Fechadura digital, preparação para aquecedor de passagem e vagas para carro elétrico. Lazer com piscina adulto e deck, piscina infantil, hidro, academia, coworking, salão de festas, terraço coberto, playground e brinquedoteca.",
     type: "BREVE LANÇAMENTO",
     category: "cidade",
     bedrooms: "2 e 3 quartos, até 2 suítes",
