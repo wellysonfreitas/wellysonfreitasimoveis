@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, ArrowRight, BedDouble, Maximize2, ChevronDown, ChevronRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   Carousel,
   CarouselContent,
@@ -513,88 +512,69 @@ const PropertyGallery = ({
 };
 
 const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-    className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-  >
-    <PropertyGallery
-      images={property.images}
-      name={property.name}
-      badge={
-        <span className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-sans font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full">
-          {property.type}
-        </span>
-      }
-    />
-    <div className="p-6">
-      <h3 className="font-serif text-xl font-medium text-foreground mb-2">{property.name}</h3>
-      <div className="flex items-center gap-1.5 text-muted-foreground mb-3">
-        <MapPin className="w-4 h-4" />
-        <span className="font-sans text-sm">{property.location}</span>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+    >
+      <PropertyGallery
+        images={property.images}
+        name={property.name}
+        badge={
+          <span className="absolute top-4 left-4 z-10 px-3 py-1 text-xs font-sans font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full">
+            {property.type}
+          </span>
+        }
+      />
+      <div className="p-6">
+        <h3 className="font-serif text-xl font-medium text-foreground mb-2">{property.name}</h3>
+        <div className="flex items-center gap-1.5 text-muted-foreground mb-3">
+          <MapPin className="w-4 h-4" />
+          <span className="font-sans text-sm">{property.location}</span>
+        </div>
+        {(property.bedrooms || property.area) && (
+          <div className="flex flex-wrap items-center gap-3 text-muted-foreground mb-3">
+            {property.bedrooms && (
+              <div className="flex items-center gap-1.5">
+                <BedDouble className="w-4 h-4 text-primary" />
+                <span className="font-sans text-xs">{property.bedrooms}</span>
+              </div>
+            )}
+            {property.area && (
+              <div className="flex items-center gap-1.5">
+                <Maximize2 className="w-4 h-4 text-primary" />
+                <span className="font-sans text-xs">{property.area}</span>
+              </div>
+            )}
+          </div>
+        )}
+        {property.price && (
+          <div className="flex items-center gap-1.5 text-primary font-sans text-sm font-semibold mb-3">
+            <Tag className="w-4 h-4" />
+            <span>{property.price}</span>
+          </div>
+        )}
+        <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-4">{property.description}</p>
+        <Button
+          asChild
+          variant="outline"
+          className="w-full btn-outline-gold font-sans text-sm font-medium gap-2 group/btn"
+        >
+          <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
+            Quero saber mais
+            <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          </a>
+        </Button>
       </div>
-      {(property.bedrooms || property.area) && (
-        <div className="flex flex-wrap items-center gap-3 text-muted-foreground mb-3">
-          {property.bedrooms && (
-            <div className="flex items-center gap-1.5">
-              <BedDouble className="w-4 h-4 text-primary" />
-              <span className="font-sans text-xs">{property.bedrooms}</span>
-            </div>
-          )}
-          {property.area && (
-            <div className="flex items-center gap-1.5">
-              <Maximize2 className="w-4 h-4 text-primary" />
-              <span className="font-sans text-xs">{property.area}</span>
-            </div>
-          )}
-        </div>
-      )}
-      {property.price && (
-        <div className="flex items-center gap-1.5 text-primary font-sans text-sm font-semibold mb-3">
-          <Tag className="w-4 h-4" />
-          <span>{property.price}</span>
-        </div>
-      )}
-      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-4">{property.description}</p>
-      {property.fullDescription && (
-        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-          <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-4">
-            <span className="font-sans text-xs font-medium">
-              {isOpen ? "Ver menos" : "Ver mais detalhes"}
-            </span>
-            <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-          </CollapsibleTrigger>
-          <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
-            <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-4">
-              {property.fullDescription}
-            </p>
-          </CollapsibleContent>
-        </Collapsible>
-      )}
-      <Button
-        asChild
-        variant="outline"
-        className="w-full btn-outline-gold font-sans text-sm font-medium gap-2 group/btn"
-      >
-        <a href={`${whatsappLink}${encodeURIComponent(property.name)}`} target="_blank" rel="noopener noreferrer">
-          Quero saber mais
-          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </a>
-      </Button>
-    </div>
-  </motion.div>
+    </motion.div>
   );
 };
 
 
 const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -647,22 +627,6 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
         )}
 
         <p className="font-sans text-xs text-white/75 leading-relaxed mb-4">{property.description}</p>
-
-        {property.fullDescription && (
-          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-            <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-4">
-              <span className="font-sans text-xs font-medium">
-                {isOpen ? "Ver menos" : "Ver mais detalhes"}
-              </span>
-              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-            </CollapsibleTrigger>
-            <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
-              <p className="font-sans text-xs text-white/65 leading-relaxed mb-4">
-                {property.fullDescription}
-              </p>
-            </CollapsibleContent>
-          </Collapsible>
-        )}
 
         <Button
           asChild
