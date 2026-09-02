@@ -512,7 +512,10 @@ const PropertyGallery = ({
   );
 };
 
-const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => (
+const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
