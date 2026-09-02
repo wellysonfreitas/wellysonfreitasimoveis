@@ -123,6 +123,19 @@ const properties: Property[] = [
     price: "A partir de R$ 700.000",
   },
   {
+    images: gallery("praca-dos-aracas"),
+    name: "Praça dos Araçás",
+    location: "Cordeiro, Recife - PE",
+    description: "Breve lançamento a 140m do Mercado Soberano. Torre única com 27 pavimentos, varanda gourmet, fechadura digital e vagas para carro elétrico.",
+    fullDescription: "Rua Desembargador Manoel de Sá Pereira, nº 101 — Cordeiro. 1 torre, 27 pavimentos tipo e 2 elevadores. Plantas de 52,68m² (2 quartos, 1 suíte), 66,53m² (3 quartos, 1 suíte) e 83,25m² (3 quartos, 2 suítes), todas com varanda gourmet. Fechadura digital, preparação para aquecedor de passagem e vagas para carro elétrico. Lazer com piscina adulto e deck, piscina infantil, hidro, academia, coworking, salão de festas, terraço coberto, playground e brinquedoteca.",
+    type: "BREVE LANÇAMENTO",
+    category: "cidade",
+    bedrooms: "2 e 3 quartos, até 2 suítes",
+    area: "52 a 83m²",
+    price: "A partir de R$ 419.000",
+  },
+  {
+
     images: gallery("parc-college"),
     name: "Parc College",
     location: "Boa Viagem, Recife - PE",
@@ -499,7 +512,10 @@ const PropertyGallery = ({
   );
 };
 
-const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => (
+const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -544,7 +560,22 @@ const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLi
           <span>{property.price}</span>
         </div>
       )}
-      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5">{property.description}</p>
+      <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-4">{property.description}</p>
+      {property.fullDescription && (
+        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+          <CollapsibleTrigger className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors mb-4">
+            <span className="font-sans text-xs font-medium">
+              {isOpen ? "Ver menos" : "Ver mais detalhes"}
+            </span>
+            <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+          </CollapsibleTrigger>
+          <CollapsibleContent className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+            <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-4">
+              {property.fullDescription}
+            </p>
+          </CollapsibleContent>
+        </Collapsible>
+      )}
       <Button
         asChild
         variant="outline"
@@ -557,7 +588,9 @@ const CidadeCard = ({ property, whatsappLink }: { property: Property; whatsappLi
       </Button>
     </div>
   </motion.div>
-);
+  );
+};
+
 
 const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappLink: string }) => {
   const [isOpen, setIsOpen] = useState(false);
