@@ -18,6 +18,11 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2"
           >
+            <img
+              src={wfLogo}
+              alt="WF — Wellyson Freitas Imóveis"
+              className="h-12 w-auto rounded-sm object-contain mb-5"
+            />
             <h3 className="font-serif text-2xl font-semibold mb-4">
               Wellyson Freitas<span className="text-primary">.</span> Imóveis
             </h3>
