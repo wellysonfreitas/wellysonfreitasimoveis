@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import wfLogoAsset from "@/assets/wf-logo.png.asset.json";
+
+const wfLogo = wfLogoAsset.url;
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
