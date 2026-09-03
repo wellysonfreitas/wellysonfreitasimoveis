@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Phone, Instagram, MapPin, Mail, Linkedin, Facebook } from "lucide-react";
+import wfLogoAsset from "@/assets/wf-logo.png.asset.json";
+
+const wfLogo = wfLogoAsset.url;
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
