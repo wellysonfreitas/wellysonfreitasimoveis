@@ -37,7 +37,12 @@ const Header = () => {
     >
       <div className="container-narrow">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-3">
+            <img
+              src={wfLogo}
+              alt="WF — Wellyson Freitas Imóveis"
+              className="h-10 w-auto rounded-sm object-contain"
+            />
             <span className={`font-serif text-xl md:text-2xl font-semibold tracking-tight ${isScrolled ? "text-foreground" : "text-cream"}`}>
               Wellyson Freitas<span className="text-primary">.</span>
             </span>
