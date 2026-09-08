@@ -646,7 +646,7 @@ const LitoralCard = ({ property, whatsappLink }: { property: Property; whatsappL
     >
       {/* Top status banner */}
       <div className="bg-forest text-white text-center py-2.5 font-sans text-xs font-semibold tracking-[0.2em] uppercase">
-        Em Obra
+        {property.type}
       </div>
 
       {/* Clean image, no dark overlay */}
