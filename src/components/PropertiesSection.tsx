@@ -24,19 +24,11 @@ import propertyHori from "@/assets/property-hori.png";
 import propertyCandeias from "@/assets/property-candeias.jpg";
 
 // Litoral Properties
-import propertyCosta from "@/assets/property-costa.webp";
-import propertyBoulevard from "@/assets/property-boulevard.jpeg";
-import propertyCostaMar from "@/assets/property-costa-mar.jpeg";
-import propertyHabita from "@/assets/property-habita.jpeg";
-import propertyOrla from "@/assets/property-orla.jpeg";
-import propertyTropi from "@/assets/property-tropi.jpeg";
-import propertyNature from "@/assets/property-nature.jpeg";
-import propertyCostaAzul from "@/assets/property-costa-azul.jpeg";
-import propertyGranResort from "@/assets/property-gran-resort.jpg";
 import propertyKoa from "@/assets/property-koa.jpeg";
 import propertyMauna from "@/assets/property-mauna.jpg";
 import propertyNau from "@/assets/property-nau.jpg";
 import propertyMarano from "@/assets/property-marano.png";
+
 
 // Gallery images (multi-image carousels)
 const galleryModules = import.meta.glob(
